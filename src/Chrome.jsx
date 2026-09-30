@@ -1,3 +1,4 @@
+import { SmartImage } from "./components/SmartImage.jsx";
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Icons } from "./Icons.jsx";
@@ -8,13 +9,14 @@ const LINKS = [
   ["about", "Our story"],
   ["junior", "Junior GOYA"],
   ["gallery", "Gallery"],
+  ["stories", "Stories"],
   ["contact", "Contact"],
 ];
 export function Header({ onMenu, transparent, wide, current, menuOpen }) {
   return (
     <header className={`site-header ${transparent ? "is-transparent" : ""}`}>
       <Link to="/" aria-label="GOYA Brisbane — home" className="brand">
-        <img
+        <SmartImage
           src={`/assets/logo-goya-${transparent ? "white" : "ink"}.png`}
           alt="GOYA"
         />
@@ -120,7 +122,7 @@ export function SideMenu({ open, onClose, current }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="menu-top">
-          <img src="/assets/seal-white.png" alt="GOYA seal" />
+          <SmartImage src="/assets/seal-white.png" alt="GOYA seal" />
           <button
             className="icon-control"
             onClick={onClose}
@@ -165,7 +167,7 @@ export function Footer() {
       <div className="container footer-grid">
         <div>
           <Link to="/" aria-label="GOYA home">
-            <img
+            <SmartImage
               className="footer-logo"
               src="/assets/logo-goya-white.png"
               alt="GOYA"
@@ -200,7 +202,7 @@ export function Footer() {
       <div className="container footer-bottom">
         <span>© {new Date().getFullYear()} GOYA Brisbane</span>
         <span className="footer-signature">
-          <img src="/assets/meander.svg" alt="" aria-hidden="true" />
+          <SmartImage src="/assets/meander.svg" alt="" aria-hidden="true" />
           Faith. Culture. Friendship.
         </span>
       </div>

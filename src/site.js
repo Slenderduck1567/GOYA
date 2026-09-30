@@ -13,7 +13,7 @@ export const SITE = {
 
 export const ROUTES = {
   home: '/', events: '/events', house: '/goya-house', about: '/about', join: '/join',
-  gallery: '/gallery', junior: '/junior-goya', netball: '/netball', contact: '/contact',
+  gallery: '/gallery', junior: '/junior-goya', netball: '/netball', stories: '/stories', contact: '/contact',
 };
 
 export const pathFor = (key) => {

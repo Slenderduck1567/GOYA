@@ -1,3 +1,4 @@
+import { SmartImage } from "../components/SmartImage.jsx";
 import React from "react";
 import { Footer } from "../Chrome.jsx";
 import { PageHero, usePageTitle } from "../shared.jsx";
@@ -67,7 +68,7 @@ function Portrait({ name }) {
     </svg>
   ) : (
     <span className="portrait">
-      <img src={portrait(name)} alt={name} loading="lazy" />
+      <SmartImage src={portrait(name)} alt={name} loading="lazy" />
     </span>
   );
 }
@@ -119,7 +120,7 @@ export default function About() {
             </p>
           </div>
           <figure className="committee-photo">
-            <img
+            <SmartImage
               src="/assets/photos/committee-2026.jpg"
               alt="The GOYA Brisbane 2026 committee together"
               loading="lazy"

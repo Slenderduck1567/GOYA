@@ -1,3 +1,4 @@
+import { SmartImage } from "../components/SmartImage.jsx";
 import React, { useState, useRef, useEffect } from "react";
 import { DATA } from "../data.js";
 import { Footer } from "../Chrome.jsx";
@@ -21,6 +22,8 @@ export default function Gallery() {
       <PageIntro eyebrow="From the parea" title="Wish you were here.">
         The nights, the faces, the moments that make us GOYA.
       </PageIntro>
+      <section className="container album-section"><div className="section-top"><h2>The full albums.</h2><span className="eyebrow">From GOYA’s official photo links</span></div><div className="album-grid">{DATA.albums.map(album=><a className="album-card" key={album.id} href={album.url} target="_blank" rel="noopener noreferrer"><span className="eyebrow">{album.year} · Photo album</span><h3>{album.title}</h3><p>{album.description}</p><span className="text-link">Open the full collection ↗</span></a>)}</div></section>
+      <div className="container section-top gallery-heading"><h2>A few familiar moments.</h2><p>Snapshots from GOYA life.</p></div>
       <section className="container gallery-grid">
         {photos.map((p, i) => (
           <figure key={p.src}>
@@ -31,7 +34,7 @@ export default function Gallery() {
               }}
               aria-label={`Enlarge: ${p.alt}`}
             >
-              <img src={p.src} alt={p.alt} loading="lazy" />
+              <SmartImage src={p.src} alt={p.alt} loading="lazy" />
               <span aria-hidden="true">↗</span>
             </button>
             <figcaption>
@@ -69,7 +72,7 @@ export default function Gallery() {
             >
               Close ×
             </button>
-            <img key={photos[active].src} src={photos[active].src} alt={photos[active].alt} />
+            <SmartImage key={photos[active].src} src={photos[active].src} alt={photos[active].alt} />
             <div className="lightbox-bottom">
               <button
                 onClick={() =>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { submitForm } from "../../lib/submit.js";
+import { submitForm, KEY } from "../../lib/submit.js";
 import { SITE } from "../../site.js";
 export function useSubmission() {
   const [state, setState] = useState("idle");
@@ -26,14 +26,14 @@ export function useSubmission() {
       lock.current = false;
     }
   };
-  return { state, error, emailHref, send };
+  return { state, error, emailHref, send, direct: Boolean(KEY) };
 }
 export function SubmissionNotice({ submission: s }) {
+  if (!KEY && s.state === "idle") return <p className="form-note">This form currently prepares an email draft. You’ll need to press Send in your email app to deliver it.</p>;
   if (s.state === "mailto")
     return (
       <div className="form-notice" role="status">
-        Your details haven’t been sent yet. Your email app has been opened with
-        a draft; review it and press Send there.{" "}
+        Your details haven’t been sent yet. If your email app opened a draft, review it and press Send there.{" "}
         <a href={s.emailHref}>Open the email draft again</a>.
       </div>
     );

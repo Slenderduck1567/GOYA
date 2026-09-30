@@ -1,0 +1,205 @@
+{
+  "/assets/photos/goya-team.jpg": {
+    "src": "/assets/photos/goya-team.webp",
+    "small": "/assets/photos/goya-team-640.webp",
+    "width": 1280,
+    "height": 817,
+    "smallWidth": 640
+  },
+  "/assets/photos/aegean-cup.jpg": {
+    "src": "/assets/photos/aegean-cup.webp",
+    "small": "/assets/photos/aegean-cup-640.webp",
+    "width": 1280,
+    "height": 784,
+    "smallWidth": 640
+  },
+  "/assets/photos/committee-2026.jpg": {
+    "src": "/assets/photos/committee-2026.webp",
+    "small": "/assets/photos/committee-2026-640.webp",
+    "width": 912,
+    "height": 641,
+    "smallWidth": 640
+  },
+  "/assets/photos/goya-flag.jpg": {
+    "src": "/assets/photos/goya-flag.webp",
+    "small": "/assets/photos/goya-flag-640.webp",
+    "width": 1280,
+    "height": 719,
+    "smallWidth": 640
+  },
+  "/assets/photos/hero.jpg": {
+    "src": "/assets/photos/hero.webp",
+    "small": "/assets/photos/hero-640.webp",
+    "width": 1200,
+    "height": 1500,
+    "smallWidth": 640
+  },
+  "/assets/photos/event-glendi.jpg": {
+    "src": "/assets/photos/event-glendi.webp",
+    "small": "/assets/photos/event-glendi-640.webp",
+    "width": 800,
+    "height": 600,
+    "smallWidth": 640
+  },
+  "/assets/photos/goya-singer.jpg": {
+    "src": "/assets/photos/goya-singer.webp",
+    "small": "/assets/photos/goya-singer-640.webp",
+    "width": 1280,
+    "height": 719,
+    "smallWidth": 640
+  },
+  "/assets/photos/gallery-6.jpg": {
+    "src": "/assets/photos/gallery-6.webp",
+    "small": "/assets/photos/gallery-6-640.webp",
+    "width": 700,
+    "height": 700,
+    "smallWidth": 640
+  },
+  "/assets/photos/gallery-4.jpg": {
+    "src": "/assets/photos/gallery-4.webp",
+    "small": "/assets/photos/gallery-4-640.webp",
+    "width": 700,
+    "height": 700,
+    "smallWidth": 640
+  },
+  "/assets/photos/about-building.jpg": {
+    "src": "/assets/photos/about-building.webp",
+    "small": "/assets/photos/about-building-640.webp",
+    "width": 626,
+    "height": 480,
+    "smallWidth": 626
+  },
+  "/assets/photos/gallery-5.jpg": {
+    "src": "/assets/photos/gallery-5.webp",
+    "small": "/assets/photos/gallery-5-640.webp",
+    "width": 700,
+    "height": 700,
+    "smallWidth": 640
+  },
+  "/assets/photos/gallery-1.jpg": {
+    "src": "/assets/photos/gallery-1.webp",
+    "small": "/assets/photos/gallery-1-640.webp",
+    "width": 700,
+    "height": 700,
+    "smallWidth": 640
+  },
+  "/assets/photos/kefi-night.jpg": {
+    "src": "/assets/photos/kefi-night.webp",
+    "small": "/assets/photos/kefi-night-640.webp",
+    "width": 1280,
+    "height": 852,
+    "smallWidth": 640
+  },
+  "/assets/photos/gallery-2.jpg": {
+    "src": "/assets/photos/gallery-2.webp",
+    "small": "/assets/photos/gallery-2-640.webp",
+    "width": 700,
+    "height": 700,
+    "smallWidth": 640
+  },
+  "/assets/photos/house.jpg": {
+    "src": "/assets/photos/house.webp",
+    "small": "/assets/photos/house-640.webp",
+    "width": 626,
+    "height": 480,
+    "smallWidth": 626
+  },
+  "/assets/photos/gallery-3.jpg": {
+    "src": "/assets/photos/gallery-3.webp",
+    "small": "/assets/photos/gallery-3-640.webp",
+    "width": 700,
+    "height": 700,
+    "smallWidth": 640
+  },
+  "/assets/photos/event-food.jpg": {
+    "src": "/assets/photos/event-food.webp",
+    "small": "/assets/photos/event-food-640.webp",
+    "width": 800,
+    "height": 600,
+    "smallWidth": 640
+  },
+  "/assets/photos/event-junior.jpg": {
+    "src": "/assets/photos/event-junior.webp",
+    "small": "/assets/photos/event-junior-640.webp",
+    "width": 800,
+    "height": 600,
+    "smallWidth": 640
+  },
+  "/assets/photos/junior-goya.jpg": {
+    "src": "/assets/photos/junior-goya.webp",
+    "small": "/assets/photos/junior-goya-640.webp",
+    "width": 1080,
+    "height": 810,
+    "smallWidth": 640
+  },
+  "/assets/photos/anastasia-tour.jpg": {
+    "src": "/assets/photos/anastasia-tour.webp",
+    "small": "/assets/photos/anastasia-tour-640.webp",
+    "width": 481,
+    "height": 600,
+    "smallWidth": 481
+  },
+  "/assets/photos/event-dance.jpg": {
+    "src": "/assets/photos/event-dance.webp",
+    "small": "/assets/photos/event-dance-640.webp",
+    "width": 800,
+    "height": 600,
+    "smallWidth": 640
+  },
+  "/assets/photos/goya-banner-team.jpg": {
+    "src": "/assets/photos/goya-banner-team.webp",
+    "small": "/assets/photos/goya-banner-team-640.webp",
+    "width": 1280,
+    "height": 1707,
+    "smallWidth": 640
+  },
+  "/assets/photos/goya-crowd.jpg": {
+    "src": "/assets/photos/goya-crowd.webp",
+    "small": "/assets/photos/goya-crowd-640.webp",
+    "width": 1280,
+    "height": 853,
+    "smallWidth": 640
+  },
+  "/assets/photos/about-collage.jpg": {
+    "src": "/assets/photos/about-collage.webp",
+    "small": "/assets/photos/about-collage-640.webp",
+    "width": 1024,
+    "height": 576,
+    "smallWidth": 640
+  },
+  "/assets/photos/about.jpg": {
+    "src": "/assets/photos/about.webp",
+    "small": "/assets/photos/about-640.webp",
+    "width": 1000,
+    "height": 800,
+    "smallWidth": 640
+  },
+  "/assets/photos/gazi-night.jpg": {
+    "src": "/assets/photos/gazi-night.webp",
+    "small": "/assets/photos/gazi-night-640.webp",
+    "width": 1280,
+    "height": 853,
+    "smallWidth": 640
+  },
+  "/assets/photos/netball.jpg": {
+    "src": "/assets/photos/netball.webp",
+    "small": "/assets/photos/netball-640.webp",
+    "width": 1080,
+    "height": 1350,
+    "smallWidth": 640
+  },
+  "/assets/photos/about-group.jpg": {
+    "src": "/assets/photos/about-group.webp",
+    "small": "/assets/photos/about-group-640.webp",
+    "width": 1280,
+    "height": 921,
+    "smallWidth": 640
+  },
+  "/assets/photos/about-youth.jpg": {
+    "src": "/assets/photos/about-youth.webp",
+    "small": "/assets/photos/about-youth-640.webp",
+    "width": 1280,
+    "height": 960,
+    "smallWidth": 640
+  }
+}

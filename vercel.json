@@ -1,3 +1,18 @@
 {
-  "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/index.html" }]
+  "routes": [
+    {
+      "src": "/events/kefi-night",
+      "status": 308,
+      "headers": {
+        "Location": "/events/aegean-cup-after-party"
+      }
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/.*",
+      "dest": "/index.html"
+    }
+  ]
 }

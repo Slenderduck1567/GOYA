@@ -1,4 +1,9 @@
+import { SmartImage } from "../components/SmartImage.jsx";
 import React from "react";
+import { splitEvents } from "../lib/events.js";
+import { useEventClock } from "../hooks/useEventClock.js";
+import { FirstVisit } from "../components/FirstVisit.jsx";
+import { HeroMedia } from "../components/HeroMedia.jsx";
 import { Link } from "react-router-dom";
 import { DATA } from "../data.js";
 import { SITE } from "../site.js";
@@ -7,15 +12,13 @@ import { usePageTitle } from "../shared.jsx";
 import { EventCard } from "../ds.js";
 export default function Home() {
   usePageTitle(null);
+  const now = useEventClock();
+  const { upcoming } = splitEvents(DATA.events,now);
+  const featured=upcoming.filter(e=>e.featured);
   return (
     <>
       <section className="home-hero">
-        <img
-          className="hero-image"
-          src="/assets/photos/goya-crowd.jpg"
-          alt="The parea together at a GOYA night"
-          fetchpriority="high"
-        />
+        <HeroMedia />
         <div className="hero-shade" />
         <div className="container hero-copy">
           <span className="eyebrow">Greek roots. Brisbane home.</span>
@@ -39,7 +42,7 @@ export default function Home() {
       <section className="container section">
         <div className="section-top">
           <div>
-            <span className="eyebrow">01—03 October 2026</span>
+            <span className="eyebrow">On the calendar</span>
             <h2>Your weekend, sorted.</h2>
           </div>
           <Link className="text-link" to="/events">
@@ -47,27 +50,29 @@ export default function Home() {
           </Link>
         </div>
         <div className="event-grid">
-          {DATA.events.filter(e => e.featured).slice(0, 2).map((e) => (
+          {(featured.length ? featured : upcoming).slice(0, 2).map((e) => (
             <EventCard key={e.id} event={e} />
           ))}
         </div>
-        <div className="weekend-note">
+        {!upcoming.length && <p className="lead">Our next gatherings are on their way. Explore past events or follow our latest announcements.</p>}
+        {upcoming.some(e=>e.tags.includes("GOYA Weekend")) && <div className="weekend-note">
           <span>01—03 OCTOBER 2026</span>
-          <p>Thursday: meet Anastasia. Friday: live in concert. Saturday: Aegean Cup & After Party.</p>
+          <p>{upcoming.filter(e=>e.tags.includes("GOYA Weekend")).map(e=>e.title).join(" · ")}</p>
           <Link to="/events">Discover the GOYA Weekend →</Link>
-        </div>
+        </div>}
       </section>
-      <section className="container weekend-lineup" aria-label="Friday and Saturday lineup">
-        {DATA.events.filter(e => e.featured).map((event, index) => (
+      {featured.length > 0 && <section className="container weekend-lineup" aria-label="Friday and Saturday lineup">
+        {featured.map((event, index) => (
           <Link to={`/events/${event.id}`} key={event.id}>
             <span className="lineup-index">0{index + 1}</span>
-            <span className="lineup-day">{event.dow} {event.day} OCT</span>
+            <span className="lineup-day">{event.dow} {event.day} {event.month}</span>
             <strong>{event.title}</strong>
             <span className="lineup-time">{event.time === "Time TBA" ? "Time to be announced" : event.time}</span>
             <span aria-hidden="true" className="lineup-arrow">↗</span>
           </Link>
         ))}
-      </section>
+      </section>}
+      <FirstVisit />
       <section className="sand-section">
         <div className="container section editorial-split">
           <div className="editorial-copy">
@@ -90,7 +95,7 @@ export default function Home() {
             </Link>
           </div>
           <figure>
-            <img
+            <SmartImage
               src="/assets/photos/goya-banner-team.jpg"
               alt="GOYA members gathered on the verandah with the community banner"
               loading="lazy"
@@ -112,7 +117,7 @@ export default function Home() {
           </p>
         </div>
         <Link to="/goya-house" className="house-photo">
-          <img
+          <SmartImage
             src="/assets/photos/goya-banner-team.jpg"
             alt="The verandah at GOYA House"
             loading="lazy"
@@ -134,7 +139,7 @@ export default function Home() {
       <section className="blue-section">
         <div className="container section editorial-split junior-feature">
           <figure>
-            <img
+            <SmartImage
               src="/assets/photos/junior-goya.jpg"
               alt="Junior GOYA enjoying a day at the skating rink"
               loading="lazy"
@@ -184,6 +189,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="container section community-teaser"><span className="eyebrow">From our community</span><h2>The people behind the parea.</h2><p>Meet the committee and read moments from GOYA life.</p><Link className="text-link" to="/stories">Read our stories ↗</Link></section>
       <Footer />
     </>
   );

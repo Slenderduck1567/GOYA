@@ -1,3 +1,4 @@
+import { SmartImage } from "../components/SmartImage.jsx";
 import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { Input, Select, Textarea } from "../ds.js";
@@ -67,7 +68,7 @@ export default function Join() {
             introduction before your first visit, leave your details and we’ll
             be in touch.
           </p>
-          <img
+          <SmartImage
             className="form-intro-photo"
             src="/assets/photos/goya-banner-team.jpg"
             alt="GOYA friends welcoming the parea at the house"
@@ -183,9 +184,9 @@ export default function Join() {
             >
               {submission.state === "busy"
                 ? "Sending…"
-                : junior
-                  ? "Introduce my family ↗"
-                  : "Send my introduction ↗"}
+                : submission.direct
+                  ? (junior ? "Introduce my family ↗" : "Send my introduction ↗")
+                  : "Prepare email introduction ↗"}
             </button>
           </form>
         )}

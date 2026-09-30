@@ -1,13 +1,14 @@
+import { SmartImage } from "../SmartImage.jsx";
 import React from "react";
 import { Link } from "react-router-dom";
-export function EventCard({ event: e }) {
+export function EventCard({ event: e, past = false }) {
   return (
     <article className="event-card">
       <Link to={`/events/${e.id}`} className="event-link">
         <div
           className={`event-image ${e.category === "Concert" ? "is-poster" : ""}`}
         >
-          <img
+          <SmartImage
             src={e.photo}
             alt=""
             loading="lazy"
@@ -31,7 +32,7 @@ export function EventCard({ event: e }) {
             {e.time} <span aria-hidden="true">·</span> {e.venue}
           </p>
           <span className="event-status">
-            {e.ticketUrl ? "Tickets available" : "Details & updates"}{" "}
+            {past ? "Past event · view recap" : e.ticketUrl ? "Tickets available" : "Details & updates"}{" "}
             <span aria-hidden="true">→</span>
           </span>
         </div>

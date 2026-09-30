@@ -3,6 +3,9 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Header, BottomNav, SideMenu } from "./Chrome.jsx";
 import { ROUTES } from "./site.js";
 import { useEditorialMotion } from "./hooks/useEditorialMotion.js";
+import { Metadata } from "./components/Metadata.jsx";
+import Admin from "./pages/Admin.jsx";
+import Stories from "./pages/Stories.jsx";
 import Home from "./pages/Home.jsx";
 import Events from "./pages/Events.jsx";
 import EventDetail from "./pages/EventDetail.jsx";
@@ -26,7 +29,7 @@ export default function App() {
   useEditorialMotion(pathname + search);
   const [menu, setMenu] = useState(false);
   const [atTop, setAtTop] = useState(true);
-  const [wide, setWide] = useState(() => window.innerWidth >= 1180);
+  const [wide, setWide] = useState(() => typeof window !== "undefined" && window.innerWidth >= 1180);
   const previousPath = useRef(pathname);
   const closeMenu = useCallback(() => setMenu(false), []);
 
@@ -63,6 +66,7 @@ export default function App() {
 
   return (
     <>
+      <Metadata path={pathname} />
       <a href="#main" className="skip-link">
         Skip to content
       </a>
@@ -80,7 +84,7 @@ export default function App() {
           showBottomNav ? "with-bottom-nav" : isEvent ? "with-event-action" : ""
         }
       >
-        <div className="page-root">
+        <div className={`page-root route-${key || pathname.slice(1)}`}>
           <Routes>
             <Route path="/" element={<Home wide={wide} />} />
             <Route path={ROUTES.events} element={<Events wide={wide} />} />
@@ -93,6 +97,8 @@ export default function App() {
             <Route path={ROUTES.junior} element={<Junior wide={wide} />} />
             <Route path={ROUTES.netball} element={<Netball wide={wide} />} />
             <Route path={ROUTES.contact} element={<Contact wide={wide} />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/stories" element={<Stories />} />
             <Route path="/thanks" element={<Thanks />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

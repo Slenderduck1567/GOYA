@@ -1,0 +1,222 @@
+{
+  "events": [
+    {
+      "id": "anastasia-meet-and-greet",
+      "year": 2026,
+      "day": "01",
+      "month": "OCT",
+      "dow": "THU",
+      "time": "5 PM\u20137 PM",
+      "category": "Social",
+      "title": "Meet Anastasia",
+      "venue": "Cyprus House, 4 Vulture Street, West End",
+      "photo": "/assets/photos/goya-banner-team.jpg",
+      "photoPos": "top",
+      "blurb": "Welcome Anastasia to Brisbane before Friday\u2019s concert. Join GOYA and Brisbane\u2019s Greek and Cypriot associations at Cyprus House for a meet-and-greet on Thursday 1 October, from 5pm to 7pm.",
+      "tags": [
+        "GOYA Weekend",
+        "Social"
+      ],
+      "ticketUrl": null,
+      "updatesUrl": "https://www.instagram.com/goya.brisbane/p/Dd0OjR_z13Y/",
+      "entryNote": "See the official announcement for the latest event information.",
+      "date": "2026-10-01",
+      "startTime": "17:00",
+      "archiveAt": "2026-10-01T19:00:00+10:00",
+      "endTime": "19:00",
+      "price": null,
+      "dressCode": null,
+      "accessibility": null
+    },
+    {
+      "id": "anastasia",
+      "featured": true,
+      "updatesUrl": "https://www.instagram.com/goya.brisbane/p/DcubarZTZ3K/",
+      "entryNote": "See the organiser\u2019s announcement for booking enquiries. A start time and direct ticket link have not been verified.",
+      "year": 2026,
+      "day": "02",
+      "month": "OCT",
+      "dow": "FRI",
+      "time": "Time TBA",
+      "category": "Concert",
+      "tone": "accent",
+      "free": false,
+      "title": "Anastasia Concert",
+      "venue": "The Greek Club, Brisbane",
+      "photo": "/assets/photos/anastasia-tour.jpg",
+      "photoPos": "top",
+      "blurb": "Anastasia performs live in Brisbane on Friday 2 October at The Greek Club, opening the GOYA Weekend. Follow GOYA Brisbane for the latest start time and ticket details.",
+      "tags": [
+        "GOYA Weekend",
+        "Social",
+        "Concert"
+      ],
+      "ticketUrl": null,
+      "date": "2026-10-02",
+      "startTime": null,
+      "archiveAt": "2026-10-03T06:00:00+10:00",
+      "endTime": null,
+      "price": null,
+      "dressCode": null,
+      "accessibility": null
+    },
+    {
+      "id": "aegean-cup",
+      "featured": true,
+      "entryNote": "Gates open at 11:30am. Matches begin at noon; the grand final is scheduled for 7pm, followed by trophy presentations at 7:50pm.",
+      "updatesUrl": "https://www.instagram.com/aegeancup/p/DdlCmznvO72/",
+      "year": 2026,
+      "day": "03",
+      "month": "OCT",
+      "dow": "SAT",
+      "time": "Gates 11:30 AM \u00b7 Kick-off 12 PM",
+      "category": "Sports",
+      "tone": "sand",
+      "free": false,
+      "title": "Aegean Cup",
+      "venue": "Olympic FC, Goodwin Park, Yeronga",
+      "photo": "/assets/photos/aegean-cup.jpg",
+      "blurb": "Our weekend football comp, run with the Kos community of Brisbane \u2014 8 teams representing the Greek islands, 2 groups, 1 champion. Teams, trophies and plenty of filotimo. Interstate parea, this one is well worth the trip. Follow @aegeancup for the draw and updates.",
+      "tags": [
+        "GOYA Weekend",
+        "Sports"
+      ],
+      "ticketUrl": null,
+      "date": "2026-10-03",
+      "startTime": "11:30",
+      "archiveAt": "2026-10-03T20:10:00+10:00",
+      "endTime": null,
+      "price": null,
+      "dressCode": null,
+      "accessibility": null
+    },
+    {
+      "id": "aegean-cup-after-party",
+      "featured": true,
+      "updatesUrl": "https://www.instagram.com/goya.brisbane/p/Dd00R6VTz9B/",
+      "age": "18+ only",
+      "entryNote": "18+ only. See the official announcement for the latest entry information.",
+      "year": 2026,
+      "day": "03",
+      "month": "OCT",
+      "dow": "SAT",
+      "time": "9 PM until late",
+      "category": "Social",
+      "tone": "accent",
+      "free": false,
+      "title": "Aegean Cup After Party",
+      "venue": "Olympic FC Function Hall, Yeronga",
+      "photo": "/assets/photos/kefi-night.jpg",
+      "blurb": "The Aegean Cup continues after the final whistle. Join the parea for the Aegean Cup After Party on Saturday 3 October. Head to Olympic FC Function Hall from 9pm for a night with Brisbane\u2019s Greek community. This event is strictly 18+.",
+      "tags": [
+        "GOYA Weekend",
+        "Social"
+      ],
+      "ticketUrl": null,
+      "date": "2026-10-03",
+      "startTime": "21:00",
+      "archiveAt": "2026-10-04T12:00:00+10:00",
+      "endTime": null,
+      "price": null,
+      "dressCode": null,
+      "accessibility": null
+    }
+  ],
+  "filters": [
+    "All",
+    "GOYA Weekend",
+    "Social",
+    "Sports",
+    "Concert"
+  ],
+  "stats": [
+    {
+      "value": "120+",
+      "label": "Active members"
+    },
+    {
+      "value": "40+",
+      "label": "Events a year"
+    },
+    {
+      "value": "Fri",
+      "label": "Open every week"
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/assets/photos/goya-crowd.jpg",
+      "alt": "Friends dancing together at a GOYA night",
+      "caption": "Together, after dark."
+    },
+    {
+      "src": "/assets/photos/goya-singer.jpg",
+      "alt": "A singer performing live for the GOYA crowd",
+      "caption": "One more song."
+    },
+    {
+      "src": "/assets/photos/goya-banner-team.jpg",
+      "alt": "GOYA members with the banner on the verandah",
+      "caption": "At home with the parea."
+    },
+    {
+      "src": "/assets/photos/goya-flag.jpg",
+      "alt": "An illuminated Greek flag on the wall at a GOYA gathering",
+      "caption": "Our roots, carried forward."
+    },
+    {
+      "src": "/assets/photos/junior-goya.jpg",
+      "alt": "Junior GOYA together at the skating rink",
+      "caption": "Little parea. Big memories."
+    },
+    {
+      "src": "/assets/photos/goya-team.jpg",
+      "alt": "GOYA friends gathered together",
+      "caption": "The people make the place."
+    }
+  ],
+  "albums": [
+    {
+      "id": "trella-2026",
+      "title": "Trella 2026",
+      "year": "2026",
+      "description": "The full photo collection, shared by GOYA.",
+      "cover": "/assets/photos/goya-crowd.jpg",
+      "coverNote": "GOYA community photograph",
+      "url": "https://drive.google.com/drive/folders/131fS_Eg-21NpWN-1yXDwI1ZUHNyW9Lno"
+    },
+    {
+      "id": "melisses-2026",
+      "title": "Melisses concert",
+      "year": "2026",
+      "description": "Explore the official concert photo collection.",
+      "cover": "/assets/photos/goya-singer.jpg",
+      "coverNote": "GOYA community photograph",
+      "url": "https://drive.google.com/drive/folders/1iy4G2tskOJPjaDZwjbLqq5b-Cd6lxDhF"
+    }
+  ],
+  "stories": [
+    {
+      "id": "committee-2026",
+      "title": "Meet the people making it happen.",
+      "eyebrow": "Our community \u00b7 2026",
+      "image": "/assets/photos/goya-banner-team.jpg",
+      "summary": "The 2026 committee brings together six teams: events, socials, sport, Junior GOYA, faith and culture, and GOYA House.",
+      "body": "GOYA\u2019s 2026 committee announcement sets out a focus on connecting young Greek Australians in Brisbane. Six subcommittees share the work, from welcoming people to events to caring for the house and planning activities for the next generation.",
+      "url": "https://www.instagram.com/goya.brisbane/p/DWBUFulkx3_/"
+    },
+    {
+      "id": "netball-2026",
+      "title": "A little team spirit.",
+      "eyebrow": "On the court \u00b7 September 2026",
+      "image": null,
+      "summary": "GOYA\u2019s netball team took to the UQ courts, with the community invited to cheer them on.",
+      "body": "On 7 September, GOYA invited friends and supporters to UQ Netball Courts for the team\u2019s 7pm game. The activity has now finished, but the invitation says something simple about GOYA: there is room to play, support and belong.",
+      "url": "https://www.instagram.com/goya.brisbane/p/Dc7j-fgzXfK/"
+    }
+  ],
+  "media": {
+    "heroVideo": null,
+    "heroPoster": "/assets/photos/goya-crowd.jpg"
+  }
+}

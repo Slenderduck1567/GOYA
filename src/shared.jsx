@@ -1,3 +1,4 @@
+import { SmartImage } from "./components/SmartImage.jsx";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { pathFor, SITE } from "./site.js";
@@ -14,7 +15,7 @@ export function usePageTitle(title) {
 }
 export function Meander() {
   return (
-    <img
+    <SmartImage
       className="meander"
       src="/assets/meander.svg"
       alt=""
@@ -31,7 +32,7 @@ export function PageHero({
 }) {
   return (
     <section className="page-hero">
-      <img
+      <SmartImage
         src={photo || photos?.[0]}
         alt=""
         className="hero-image"

@@ -24,9 +24,9 @@ export default function Junior() {
             Friends to grow up with. A culture to grow into.
           </p>
           <p>
-            Junior GOYA is a warm, supervised space for our youngest members to
+            Junior GOYA is a welcoming community for our youngest members to
             make friends, learn about their heritage and have a lot of fun doing
-            it. Parents are always welcome to stay.
+            it. Check each activity’s supervision and parent attendance arrangements before booking.
           </p>
           <Link className="button" to="/join?group=junior">
             Introduce your family ↗
@@ -64,12 +64,11 @@ export default function Junior() {
             with the next suitable activity, timing and what to bring.
           </p>
           <p>
-            For the latest Junior events and announcements, follow GOYA
-            Brisbane.
+            For the latest Junior events and announcements, follow Junior GOYA.
           </p>
           <a
             className="text-link"
-            href={SITE.instagram}
+            href="https://www.instagram.com/junior.goya/"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -77,6 +76,7 @@ export default function Junior() {
           </a>
         </div>
       </section>
+      <section className="container section junior-guide"><span className="eyebrow">For parents & guardians</span><h2>Find the right fit.</h2><div className="junior-age-grid"><article><span className="age-number">0–12</span><h3>Family activities</h3><p>Ask which upcoming activities suit your child’s age and whether a parent needs to stay.</p></article><article><span className="age-number">13–17</span><h3>Teen parea</h3><p>To Steki youth nights have their own age limits, times and entry details. Check the specific announcement.</p></article><article><span className="age-number">18</span><h3>The next chapter</h3><p>Explore GOYA’s wider calendar. Each event lists its own admission requirements.</p></article></div><div className="faq-list"><details><summary>What is coming up?</summary><p>New Junior activities are announced on <a href="https://www.instagram.com/junior.goya/" target="_blank" rel="noopener noreferrer">Junior GOYA’s Instagram</a>. Contact us to find the next suitable activity; previous posts are not a current schedule.</p></details><details><summary>Who should complete the introduction?</summary><p>A parent or guardian should complete the Junior introduction form. Include the child’s first name and age so we can direct the enquiry.</p></details><details><summary>Who can answer questions about care and access?</summary><p>Use the Junior enquiry option to reach GOYA. Ask about supervision, collection and any access arrangements before attending. Please keep medical or sensitive details out of the website form.</p></details></div><Link className="button" to="/contact?enquiry=junior">Ask the Junior GOYA team ↗</Link></section>
       <Footer />
     </>
   );

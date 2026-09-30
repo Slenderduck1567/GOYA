@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { useSearchParams } from "react-router-dom";
 import { Input, Select, Textarea } from "../ds.js";
 import { SITE } from "../site.js";
@@ -13,7 +13,11 @@ import {
 export default function Contact() {
   usePageTitle("Contact");
   const [params] = useSearchParams();
-  const hire = params.get("enquiry") === "hire";
+  const enquiry=params.get("enquiry");
+  const initialTopic=enquiry==="hire"?"GOYA House hire":enquiry==="junior"?"Junior GOYA":"General enquiry";
+  const [topic,setTopic]=useState(initialTopic);
+  useEffect(()=>setTopic(initialTopic),[initialTopic]);
+  const hire=topic==="GOYA House hire";
   const s = useSubmission();
   const onSubmit = (ev) => {
     ev.preventDefault();
@@ -24,6 +28,7 @@ export default function Contact() {
       Email: f.get("email"),
       Topic: f.get("topic"),
       Message: f.get("message"),
+      ...(f.get("date")?{Preferred_date:f.get("date"),Guest_count:f.get("guests"),Occasion:f.get("occasion")}:{}),
     });
   };
   return (
@@ -79,10 +84,10 @@ export default function Contact() {
               autoComplete="email"
             />
             <Select
-              key={String(hire)}
               label="What’s it about?"
               name="topic"
-              defaultValue={hire ? "GOYA House hire" : "General enquiry"}
+              value={topic}
+              onChange={e=>setTopic(e.target.value)}
             >
               <option>General enquiry</option>
               <option>GOYA House hire</option>
@@ -90,6 +95,7 @@ export default function Contact() {
               <option>Junior GOYA</option>
               <option>Volunteering</option>
             </Select>
+            {hire && <><Input label="Preferred date" type="date" name="date" required /><div className="field-pair"><Input label="Approximate guest count" type="number" name="guests" min="1" max="10000" required/><Input label="Occasion" name="occasion" required /></div><p className="form-note">An enquiry does not reserve the venue. Capacity and availability will be confirmed by the committee.</p></>}
             <Textarea
               label="Message"
               name="message"
@@ -111,7 +117,7 @@ export default function Contact() {
               type="submit"
               disabled={s.state === "busy"}
             >
-              {s.state === "busy" ? "Sending…" : "Send message ↗"}
+              {s.state === "busy" ? "Sending…" : s.direct ? "Send message ↗" : "Prepare email message ↗"}
             </button>
           </form>
         )}

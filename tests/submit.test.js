@@ -2,9 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
-const source = readFileSync(new URL('../src/lib/submit.js', import.meta.url), 'utf8').replace(/import \{ SITE \} from .*?;/, '').replace('import.meta.env.VITE_WEB3FORMS_KEY', 'configuredKey').replace('export async function', 'async function');
+const source = readFileSync(new URL('../src/lib/submit.js', import.meta.url), 'utf8').replace(/import \{ SITE \} from .*?;/, '').replace('import.meta.env.VITE_WEB3FORMS_KEY', 'configuredKey').replace('export async function', 'async function').replace('export const KEY', 'const KEY');
 function setup(key, fetch) {
-  const context = { configuredKey:key, SITE:{email:'test@example.com',web3formsKey:''}, fetch, window:{location:{href:''}} };
+  const context = { AbortController, setTimeout, clearTimeout, configuredKey:key, SITE:{email:'test@example.com',web3formsKey:''}, fetch, window:{location:{href:''}} };
   vm.createContext(context); vm.runInContext(source, context);
   return context;
 }

@@ -1,3 +1,4 @@
+import { SmartImage } from "../SmartImage.jsx";
 import React from 'react';
 
 /**
@@ -37,7 +38,7 @@ export function Avatar({ src, name = '', size = 'md', ring = false, style = {}, 
       {...rest}
     >
       {src
-        ? <img src={src} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        ? <SmartImage src={src} alt={name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         : (initials || '?')}
     </div>
   );
