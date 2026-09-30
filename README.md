@@ -15,7 +15,9 @@ npm run dev
 - **Pages**: `src/pages/`
 
 ## Forms (Join, Contact, Netball)
-Get a free access key at https://web3forms.com using the inbox that should receive submissions, then add it
+Forms send to the email in `src/site.js` via FormSubmit (formsubmit.co). The first submission triggers a one-time "Activate" email to that inbox — click it once.
+
+Optional alternative: Get a free access key at https://web3forms.com using the inbox that should receive submissions, then add it
 as the environment variable `VITE_WEB3FORMS_KEY` in your host (Vercel → Project → Settings → Environment Variables) and redeploy.
 Until then, forms open the visitor's email app addressed to the email in `src/site.js`.
 
