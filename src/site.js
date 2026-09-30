@@ -3,7 +3,7 @@ export const SITE = {
   instagram: 'https://instagram.com/goya.brisbane',
   instagramHandle: '@goya.brisbane',
   facebook: null, // e.g. 'https://facebook.com/goyabrisbane' — the icon only shows once this is set
-  email: 'hello@goyabrisbane.org.au', // TODO: confirm the real inbox
+  email: 'goya.org@gmail.com',
   address: '22A Browning St, South Brisbane QLD 4101',
   addressShort: '22A Browning St, South Brisbane',
   mapQuery: '22A Browning St, South Brisbane QLD 4101',
