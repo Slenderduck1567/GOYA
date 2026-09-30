@@ -39,23 +39,34 @@ export default function Home() {
       <section className="container section">
         <div className="section-top">
           <div>
-            <span className="eyebrow">Save the date</span>
-            <h2>Coming together.</h2>
+            <span className="eyebrow">01—03 October 2026</span>
+            <h2>Your weekend, sorted.</h2>
           </div>
           <Link className="text-link" to="/events">
             All events ↗
           </Link>
         </div>
         <div className="event-grid">
-          {DATA.events.slice(0, 2).map((e) => (
+          {DATA.events.filter(e => e.featured).slice(0, 2).map((e) => (
             <EventCard key={e.id} event={e} />
           ))}
         </div>
         <div className="weekend-note">
-          <span>02—04 OCTOBER 2026</span>
-          <p>One weekend. A concert, the Aegean Cup, Kefi Night & Gazi.</p>
+          <span>01—03 OCTOBER 2026</span>
+          <p>Thursday: meet Anastasia. Friday: live in concert. Saturday: Aegean Cup & After Party.</p>
           <Link to="/events">Discover the GOYA Weekend →</Link>
         </div>
+      </section>
+      <section className="container weekend-lineup" aria-label="Friday and Saturday lineup">
+        {DATA.events.filter(e => e.featured).map((event, index) => (
+          <Link to={`/events/${event.id}`} key={event.id}>
+            <span className="lineup-index">0{index + 1}</span>
+            <span className="lineup-day">{event.dow} {event.day} OCT</span>
+            <strong>{event.title}</strong>
+            <span className="lineup-time">{event.time === "Time TBA" ? "Time to be announced" : event.time}</span>
+            <span aria-hidden="true" className="lineup-arrow">↗</span>
+          </Link>
+        ))}
       </section>
       <section className="sand-section">
         <div className="container section editorial-split">

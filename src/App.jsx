@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState, useRef } from "react";
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Header, BottomNav, SideMenu } from "./Chrome.jsx";
 import { ROUTES } from "./site.js";
+import { useEditorialMotion } from "./hooks/useEditorialMotion.js";
 import Home from "./pages/Home.jsx";
 import Events from "./pages/Events.jsx";
 import EventDetail from "./pages/EventDetail.jsx";
@@ -21,7 +22,8 @@ const keyForPath = (path) => {
 };
 
 export default function App() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
+  useEditorialMotion(pathname + search);
   const [menu, setMenu] = useState(false);
   const [atTop, setAtTop] = useState(true);
   const [wide, setWide] = useState(() => window.innerWidth >= 1180);
@@ -82,6 +84,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home wide={wide} />} />
             <Route path={ROUTES.events} element={<Events wide={wide} />} />
+            <Route path="/events/kefi-night" element={<Navigate to="/events/aegean-cup-after-party" replace />} />
             <Route path="/events/:id" element={<EventDetail wide={wide} />} />
             <Route path={ROUTES.house} element={<House wide={wide} />} />
             <Route path={ROUTES.about} element={<About wide={wide} />} />

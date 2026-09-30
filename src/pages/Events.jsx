@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import React from "react";
+import { useSearchParams } from "react-router-dom";
 import { EventCard } from "../ds.js";
 import { DATA } from "../data.js";
 import { Footer } from "../Chrome.jsx";
@@ -22,15 +22,14 @@ export default function Events() {
       </PageIntro>
       <section className="container">
         <div className="weekend-banner">
-          <span className="eyebrow">02—04 OCTOBER 2026 · BRISBANE</span>
+          <span className="eyebrow">01—03 OCTOBER 2026 · BRISBANE</span>
           <h2>
             The GOYA
             <br />
             Weekend.
           </h2>
           <p>
-            Three days of parea. A concert, the Aegean Cup, Kefi Night and Gazi.
-            Interstate? Make the trip. More details are on their way.
+            Meet Anastasia on Thursday, see her live on Friday, then join us for the Aegean Cup and its 18+ After Party on Saturday.
           </p>
         </div>
         <div className="event-filters" role="group" aria-label="Filter events">
@@ -54,12 +53,7 @@ export default function Events() {
             <EventCard event={e} key={e.id} />
           ))}
         </div>
-        <Link className="netball-promo" to="/netball">
-          <span className="eyebrow">Expressions of interest open</span>
-          <h2>On your team.</h2>
-          <p>Women’s netball · Ages 16–30 · All experience levels</p>
-          <span className="text-link">Register your interest ↗</span>
-        </Link>
+
       </section>
       <Footer />
     </>

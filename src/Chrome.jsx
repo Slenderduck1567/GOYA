@@ -8,7 +8,6 @@ const LINKS = [
   ["about", "Our story"],
   ["junior", "Junior GOYA"],
   ["gallery", "Gallery"],
-  ["netball", "Netball"],
   ["contact", "Contact"],
 ];
 export function Header({ onMenu, transparent, wide, current, menuOpen }) {

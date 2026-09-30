@@ -69,7 +69,7 @@ export default function Gallery() {
             >
               Close ×
             </button>
-            <img src={photos[active].src} alt={photos[active].alt} />
+            <img key={photos[active].src} src={photos[active].src} alt={photos[active].alt} />
             <div className="lightbox-bottom">
               <button
                 onClick={() =>

@@ -22,7 +22,7 @@ export function EventCard({ event: e }) {
           </span>
         </div>
         <div className="event-copy">
-          <span className="eyebrow">{e.category}</span>
+          <span className="eyebrow">{e.category}{e.age ? ` · ${e.age}` : ""}</span>
           <h3>
             {e.title}
             <span aria-hidden="true">↗</span>

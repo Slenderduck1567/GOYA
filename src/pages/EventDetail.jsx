@@ -10,7 +10,7 @@ export default function EventDetail() {
   usePageTitle(e?.title || "Events");
   if (!e) return <Navigate to="/events" replace />;
   const url = e.ticketUrl || e.updatesUrl || SITE.instagram;
-  const action = e.ticketUrl ? "Get tickets" : "Follow for updates";
+  const action = e.ticketUrl ? "Get tickets" : "View announcement";
   return (
     <>
       <section
@@ -49,11 +49,12 @@ export default function EventDetail() {
               <dt>Venue</dt>
               <dd>{e.venue}</dd>
             </div>
+            {e.age && <div><dt>Age requirement</dt><dd>{e.age}</dd></div>}
           </dl>
           <p className="small">
-            {e.ticketUrl
+            {e.entryNote || (e.ticketUrl
               ? "Tickets are available from the organiser."
-              : "Ticket and entry details are still being confirmed. Follow the organiser for the latest updates."}
+              : "Ticket and entry details are still being confirmed. Follow the organiser for the latest updates.")}
           </p>
           <a
             className="button"
