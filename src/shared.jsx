@@ -36,7 +36,7 @@ export function PageHero({
         alt=""
         className="hero-image"
         style={{ objectPosition: position }}
-        fetchPriority="high"
+        fetchpriority="high"
       />
       <div className="hero-shade" />
       <div className="container hero-copy">

@@ -14,7 +14,7 @@ export default function Home() {
           className="hero-image"
           src="/assets/photos/goya-crowd.jpg"
           alt="The parea together at a GOYA night"
-          fetchPriority="high"
+          fetchpriority="high"
         />
         <div className="hero-shade" />
         <div className="container hero-copy">
