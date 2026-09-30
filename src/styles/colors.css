@@ -1,0 +1,67 @@
+/* GOYA — Color tokens
+   Monochrome-led, clean & minimal, with Aegean blue as the single accent.
+   Base scale + semantic aliases. */
+
+:root {
+  /* ---- Ink / neutral scale (warm-neutral, near-black through paper) ---- */
+  --ink-900: #0E0F12;   /* logo black — text, bars */
+  --ink-800: #1A1C20;
+  --ink-700: #2C2F35;
+  --ink-600: #4A4E56;
+  --ink-500: #6B7079;   /* muted text */
+  --ink-400: #9AA0A8;
+  --ink-300: #C6CACF;   /* hairline borders on light */
+  --ink-200: #E3E5E8;   /* dividers, card borders */
+  --ink-150: #EDEEF0;
+  --ink-100: #F4F5F6;   /* subtle surface */
+  --ink-050: #FAFAF8;   /* page tint (warm white) */
+  --paper:   #FFFFFF;
+
+  /* ---- Aegean blue (single accent) ---- */
+  --aegean-900: #0A2E52;
+  --aegean-800: #0E3D6B;
+  --aegean-700: #114E89;
+  --aegean-600: #155FA6;  /* primary accent */
+  --aegean-500: #1E78C9;
+  --aegean-400: #4F9BDD;
+  --aegean-300: #93C2EC;
+  --aegean-200: #C9E0F5;
+  --aegean-100: #E7F1FA;  /* tint surface */
+  --aegean-050: #F3F8FD;
+
+  /* ---- Support: warm sand (very sparing, for soft sections) ---- */
+  --sand-200: #EFE9DE;
+  --sand-100: #F6F2EA;
+
+  /* ---- Semantic ---- */
+  --success: #2E7D55;
+  --warning: #B97A12;
+  --danger:  #B23A36;
+  --info:    var(--aegean-600);
+
+  /* ---- Semantic aliases (use these in UI) ---- */
+  --bg-page:        var(--ink-050);
+  --bg-surface:     var(--paper);
+  --bg-subtle:      var(--ink-100);
+  --bg-tint:        var(--aegean-100);
+  --bg-inverse:     var(--ink-900);
+
+  --text-strong:    var(--ink-900);
+  --text-body:      var(--ink-800);
+  --text-muted:     var(--ink-500);
+  --text-faint:     var(--ink-400);
+  --text-on-dark:   var(--paper);
+  --text-on-accent: var(--paper);
+  --text-link:      var(--aegean-700);
+
+  --accent:         var(--aegean-600);
+  --accent-hover:   var(--aegean-700);
+  --accent-press:   var(--aegean-800);
+  --accent-soft:    var(--aegean-100);
+
+  --border-hairline: var(--ink-200);
+  --border-strong:   var(--ink-300);
+  --border-accent:   var(--aegean-600);
+
+  --focus-ring:      var(--aegean-500);
+}
