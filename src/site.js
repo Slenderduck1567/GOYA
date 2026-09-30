@@ -7,6 +7,7 @@ export const SITE = {
   address: '22A Browning St, South Brisbane QLD 4101',
   addressShort: '22A Browning St, South Brisbane',
   mapQuery: '22A Browning St, South Brisbane QLD 4101',
+  web3formsKey: '', // paste the free key from web3forms.com here to make forms send straight to the inbox
   netballFormUrl: null, // TODO: paste the Google Form link for Women's Netball EOI
 };
 
