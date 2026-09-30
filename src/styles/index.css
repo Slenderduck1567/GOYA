@@ -3,9 +3,10 @@
 @import url('./typography.css');
 @import url('./layout.css');
 @import url('./base.css');
+@import url('./editorial.css');
 
 html { scroll-behavior: auto; }
-body { overflow-x: hidden; }
+body { overflow-x: clip; }
 img { max-width: 100%; }
 button, input, select, textarea { font: inherit; }
 :focus-visible { outline: 3px solid var(--aegean-300); outline-offset: 2px; }

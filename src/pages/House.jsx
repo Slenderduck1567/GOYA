@@ -1,38 +1,87 @@
-import React from 'react';
-import { Button as Btn } from '../ds.js';
-import { Icons as Ic2 } from '../Icons.jsx';
-import { SITE } from '../site.js';
-import { Footer as Ftr } from '../Chrome.jsx';
-import { PageHero, MapEmbed, directionsUrl, useGo, usePageTitle } from '../shared.jsx';
-
-export default function GoyaHouseScreen({ wide }) {
-  const go = useGo();
-  usePageTitle('GOYA House');
+import React from "react";
+import { Link } from "react-router-dom";
+import { SITE } from "../site.js";
+import { Footer } from "../Chrome.jsx";
+import { PageHero, MapEmbed, usePageTitle } from "../shared.jsx";
+export default function House() {
+  usePageTitle("GOYA House");
   return (
-    <div>
-      <PageHero photo="/assets/photos/house.jpg" eyebrow="Our place" title="GOYA House" wide={wide} />
-      <section style={{ padding: '32px 22px' }}>
-        <p style={{ fontSize: 18, lineHeight: 1.6, color: 'var(--text-body)', fontWeight: 500 }}>
-          GOYA House — known to everyone as <em>the Steki</em> — is our home base in South Brisbane. It's where Friday nights happen, where the dance group rehearses, and where you'll always find a familiar face.
-        </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, margin: '24px 0' }}>
-          {[[Ic2.MapPin, 'Address', '22A Browning St, South Brisbane'], [Ic2.Calendar, 'Open', 'Every Friday from 7:30 PM'], [Ic2.Users, 'Who', 'GOYA members & guests — all welcome']].map(([Ico, k, v], i) => (
-            <div key={i} style={{ display: 'flex', gap: 13, alignItems: 'center', padding: '14px 16px', background: 'var(--bg-surface)', border: '1px solid var(--border-hairline)', borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-xs)' }}>
-              <span style={{ display: 'inline-flex', width: 42, height: 42, borderRadius: 'var(--radius-sm)', background: 'var(--bg-tint)', color: 'var(--accent)', alignItems: 'center', justifyContent: 'center', flex: 'none' }}><Ico size={20} /></span>
-              <div>
-                <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--text-faint)' }}>{k}</div>
-                <div style={{ fontWeight: 600, color: 'var(--text-strong)', fontSize: 15.5 }}>{v}</div>
-              </div>
+    <>
+      <PageHero
+        photo="/assets/photos/goya-banner-team.jpg"
+        position="center 58%"
+        eyebrow="Our home in South Brisbane"
+        title="The Steki."
+      />
+      <section className="container section editorial-split">
+        <div className="editorial-copy">
+          <span className="eyebrow">GOYA House</span>
+          <h2>
+            Make yourself
+            <br />
+            at home.
+          </h2>
+          <p className="lead">
+            A familiar face. Music from the next room. A place to come back to.
+          </p>
+          <p>
+            GOYA House — known to everyone as the Steki — is our home base on
+            Browning Street. It’s where Friday nights happen, where the dance
+            group rehearses, and where parea comes together.
+          </p>
+          <Link className="text-link" to="/events">
+            See upcoming gatherings ↗
+          </Link>
+        </div>
+        <div className="facts-panel">
+          <dl>
+            <div>
+              <dt>Find us</dt>
+              <dd>{SITE.address}</dd>
             </div>
-          ))}
+            <div>
+              <dt>Friday gatherings</dt>
+              <dd>From 7:30 PM. Check our latest updates before visiting.</dd>
+            </div>
+            <div>
+              <dt>Monthly Steki</dt>
+              <dd>
+                A special Friday night of music, souvla and parea. Dates
+                announced with each event.
+              </dd>
+            </div>
+            <div>
+              <dt>Who’s welcome</dt>
+              <dd>Members and guests. No membership needed to come along.</dd>
+            </div>
+          </dl>
         </div>
-        <div style={{ marginBottom: 12 }}><MapEmbed query={SITE.mapQuery} height={220} /></div>
-        <div style={{ marginBottom: 24 }}>
-          <Btn variant="secondary" full as="a" href={directionsUrl()} target="_blank" rel="noopener" iconLeft={<Ic2.MapPin size={17} />}>Get directions</Btn>
-        </div>
-        <Btn variant="primary" size="lg" full iconRight={<Ic2.ArrowRight size={17} />} onClick={() => go('events')}>See what's on</Btn>
       </section>
-      <Ftr />
-    </div>
+      <section className="sand-section">
+        <div className="container section editorial-split">
+          <div>
+            <span className="eyebrow">A space to celebrate</span>
+            <h2>
+              Your people.
+              <br />
+              Our place.
+            </h2>
+            <p className="lead">
+              Birthdays, christenings, name days and functions. The Steki is
+              available to hire.
+            </p>
+            <p>
+              Tell us your preferred date, occasion and approximate guest count.
+              We’ll discuss availability and the details with you.
+            </p>
+            <Link className="button" to="/contact?enquiry=hire">
+              Enquire about venue hire ↗
+            </Link>
+          </div>
+          <MapEmbed query={SITE.mapQuery} />
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 }

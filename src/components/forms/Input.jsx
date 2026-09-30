@@ -22,12 +22,14 @@ export function Input({
         <label htmlFor={inputId} style={{
           fontFamily: 'var(--font-heading)', fontWeight: 600, fontSize: '0.8125rem',
           color: 'var(--text-strong)',
-        }}>{label}</label>
+        }}>{label}{rest.required && <span aria-hidden="true"> *</span>}</label>
       )}
       <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
         {icon && <span style={{ position: 'absolute', left: 14, display: 'inline-flex', color: 'var(--text-faint)' }}>{icon}</span>}
         <input
           id={inputId}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={(hint || error) ? `${inputId}-hint` : undefined}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           style={{
@@ -48,7 +50,7 @@ export function Input({
         />
       </div>
       {(hint || error) && (
-        <span style={{ fontSize: '0.75rem', color: error ? 'var(--danger)' : 'var(--text-muted)' }}>
+        <span id={`${inputId}-hint`} style={{ fontSize: '0.75rem', color: error ? 'var(--danger)' : 'var(--text-muted)' }}>
           {error || hint}
         </span>
       )}

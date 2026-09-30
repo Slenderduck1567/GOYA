@@ -19,7 +19,7 @@ export async function submitForm(subject, fields) {
     } catch {
       throw new Error(`Couldn't send — check your connection, or email us at ${SITE.email}.`);
     }
-    if (!res.ok || json.success === false) throw new Error(json.message || `Something went wrong — please email us at ${SITE.email}.`);
+    if (!res.ok || json.success !== true) throw new Error(json.message || `Something went wrong — please email us at ${SITE.email}.`);
     return 'sent';
   }
   const body = Object.entries(fields).map(([k, v]) => `${k}: ${v}`).join('\n');

@@ -1,35 +1,83 @@
-import React from 'react';
-import { Button as Btn, Card as Crd } from '../ds.js';
-import { Icons as Ic2 } from '../Icons.jsx';
-import { Footer as Ftr } from '../Chrome.jsx';
-import { PageHero, useGo, usePageTitle } from '../shared.jsx';
-
-export default function JuniorScreen({ wide }) {
-  const go = useGo();
-  usePageTitle('Junior GOYA');
+import React from "react";
+import { Link } from "react-router-dom";
+import { SITE } from "../site.js";
+import { Footer } from "../Chrome.jsx";
+import { PageHero, usePageTitle } from "../shared.jsx";
+export default function Junior() {
+  usePageTitle("Junior GOYA");
   return (
-    <div>
-      <PageHero photo="/assets/photos/event-junior.jpg" eyebrow="Ages 0–18" title="Junior GOYA" wide={wide} />
-      <section style={{ padding: '32px 22px' }}>
-        <p style={{ fontSize: 18, lineHeight: 1.6, color: 'var(--text-body)', fontWeight: 500 }}>
-          Junior GOYA is where it all begins. A warm, supervised space for our youngest members to make friends, learn about their heritage, and have a lot of fun doing it.
-        </p>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 12, margin: '24px 0' }}>
-          {[['Craft & games mornings', 'Hands-on, age-appropriate and always a bit messy.'], ['Greek school & dance', 'Language and dance, taught gently and patiently.'], ['Family-friendly', 'Parents are always welcome to stay.']].map(([t, d], i) => (
-            <Crd key={i} padding="md">
-              <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
-                <span style={{ display: 'inline-flex', width: 40, height: 40, borderRadius: 'var(--radius-sm)', background: 'var(--bg-tint)', color: 'var(--accent)', alignItems: 'center', justifyContent: 'center', flex: 'none' }}><Ic2.Sparkle size={20} /></span>
-                <div>
-                  <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 16, color: 'var(--text-strong)' }}>{t}</div>
-                  <p style={{ margin: '4px 0 0', fontSize: 14.5, color: 'var(--text-muted)', lineHeight: 1.55 }}>{d}</p>
-                </div>
+    <>
+      <PageHero
+        photo="/assets/photos/junior-goya.jpg"
+        eyebrow="Ages 0–18 · Families welcome"
+        title="Growing up GOYA."
+      />
+      <section className="container section editorial-split">
+        <div>
+          <span className="eyebrow">Our youngest parea</span>
+          <h2>
+            Where it
+            <br />
+            all begins.
+          </h2>
+          <p className="lead">
+            Friends to grow up with. A culture to grow into.
+          </p>
+          <p>
+            Junior GOYA is a warm, supervised space for our youngest members to
+            make friends, learn about their heritage and have a lot of fun doing
+            it. Parents are always welcome to stay.
+          </p>
+          <Link className="button" to="/join?group=junior">
+            Introduce your family ↗
+          </Link>
+        </div>
+        <div className="numbered-list">
+          {[
+            [
+              "Craft & games",
+              "Hands-on, age-appropriate and always a bit messy.",
+            ],
+            ["Greek culture", "Language, dance and the traditions we share."],
+            [
+              "Days out together",
+              "Family-friendly activities and memories with the parea.",
+            ],
+          ].map(([t, d], i) => (
+            <div key={t}>
+              <span className="eyebrow">0{i + 1}</span>
+              <div>
+                <h3>{t}</h3>
+                <p>{d}</p>
               </div>
-            </Crd>
+            </div>
           ))}
         </div>
-        <Btn variant="primary" size="lg" full onClick={() => go('join')}>Register your child</Btn>
       </section>
-      <Ftr />
-    </div>
+      <section className="sand-section">
+        <div className="container section narrow">
+          <span className="eyebrow">Before your first visit</span>
+          <h2>Let’s find your place.</h2>
+          <p>
+            Activities suit different ages across the 0–18 group. A parent or
+            guardian can introduce the family using our form, and we’ll help
+            with the next suitable activity, timing and what to bring.
+          </p>
+          <p>
+            For the latest Junior events and announcements, follow GOYA
+            Brisbane.
+          </p>
+          <a
+            className="text-link"
+            href={SITE.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            See our latest updates ↗
+          </a>
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 }

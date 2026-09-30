@@ -1,72 +1,122 @@
-import React, { useState } from 'react';
-import { Button as Btn, SectionHeading as SH, Input as In, Textarea as TA } from '../ds.js';
-import { Icons as Ic2 } from '../Icons.jsx';
-import { SITE } from '../site.js';
-import { Footer as Ftr } from '../Chrome.jsx';
-import { directionsUrl, usePageTitle } from '../shared.jsx';
-import { submitForm } from '../lib/submit.js';
-
-export default function ContactScreen({ wide }) {
-  usePageTitle('Contact');
-  const [sent, setSent] = useState(false);
-  const [busy, setBusy] = useState(false);
-  const [err, setErr] = useState('');
-
-  const onSubmit = async (ev) => {
+import React from "react";
+import { useSearchParams } from "react-router-dom";
+import { Input, Select, Textarea } from "../ds.js";
+import { SITE } from "../site.js";
+import { Footer } from "../Chrome.jsx";
+import { directionsUrl, usePageTitle } from "../shared.jsx";
+import {
+  useSubmission,
+  SubmissionNotice,
+  Success,
+  Honeypot,
+} from "../components/forms/Submission.jsx";
+export default function Contact() {
+  usePageTitle("Contact");
+  const [params] = useSearchParams();
+  const hire = params.get("enquiry") === "hire";
+  const s = useSubmission();
+  const onSubmit = (ev) => {
     ev.preventDefault();
     const f = new FormData(ev.currentTarget);
-    if (f.get('botcheck')) return;
-    setBusy(true); setErr('');
-    try {
-      const r = await submitForm('New message from the GOYA website', { Name: f.get('name'), Email: f.get('email'), Message: f.get('message') });
-      if (r === 'sent') setSent(true);
-    } catch (e) { setErr(e.message); }
-    setBusy(false);
+    if (f.get("botcheck")) return;
+    s.send(`GOYA enquiry — ${f.get("topic")}`, {
+      Name: f.get("name"),
+      Email: f.get("email"),
+      Topic: f.get("topic"),
+      Message: f.get("message"),
+    });
   };
-
-  const rows = [
-    [Ic2.Instagram, SITE.instagramHandle, 'Instagram — quickest reply', SITE.instagram],
-    [Ic2.Mail, SITE.email, 'Email us anytime', `mailto:${SITE.email}`],
-    [Ic2.MapPin, SITE.addressShort, 'GOYA House', directionsUrl()],
-  ];
   return (
-    <div>
-      <section style={{ padding: '26px 22px 8px' }}>
-        <SH eyebrow="Say yiasou" title="Contact" />
-        <p style={{ color: 'var(--text-muted)', margin: '14px 0 0', fontSize: 15.5, lineHeight: 1.6 }}>Questions, ideas, or want to get involved? We'd love to hear from you.</p>
-      </section>
-      <div style={{ display: 'grid', gridTemplateColumns: wide ? '1fr 1fr' : '1fr', gap: wide ? 24 : 0, alignItems: 'start' }}>
-        <section style={{ padding: '20px 22px 8px', display: 'flex', flexDirection: 'column', gap: 12 }}>
-          {rows.map(([Ico, v, k, href], i) => (
-            <a key={i} href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener" className="plain" style={{ display: 'flex', gap: 13, alignItems: 'center', padding: '14px 16px', background: 'var(--bg-surface)', border: '1px solid var(--border-hairline)', borderRadius: 'var(--radius-md)', boxShadow: 'var(--shadow-xs)' }}>
-              <span style={{ display: 'inline-flex', width: 42, height: 42, borderRadius: 'var(--radius-sm)', background: 'var(--bg-tint)', color: 'var(--accent)', alignItems: 'center', justifyContent: 'center', flex: 'none' }}><Ico size={20} /></span>
-              <div style={{ minWidth: 0 }}>
-                <div style={{ fontWeight: 700, color: 'var(--text-strong)', fontSize: 15.5, overflowWrap: 'anywhere' }}>{v}</div>
-                <div style={{ fontSize: 13, color: 'var(--text-muted)' }}>{k}</div>
-              </div>
+    <>
+      <section className="container form-layout">
+        <div className="form-intro">
+          <span className="eyebrow">A conversation starts here</span>
+          <h1>
+            Say
+            <br />
+            yiasou.
+          </h1>
+          <p className="lead">
+            Questions, ideas or a celebration in mind? We’d love to hear from
+            you.
+          </p>
+          <p>
+            We’re a volunteer team. Instagram is usually the quickest way to
+            reach us.
+          </p>
+          <div className="contact-methods">
+            <a href={SITE.instagram} target="_blank" rel="noopener noreferrer">
+              {SITE.instagramHandle} ↗<small>Instagram</small>
             </a>
-          ))}
-        </section>
-        {sent ? (
-          <section style={{ padding: '20px 22px 36px' }}>
-            <div style={{ background: 'var(--bg-tint)', border: '1px solid var(--aegean-200)', borderRadius: 'var(--radius-lg)', padding: 24, textAlign: 'center' }}>
-              <span style={{ display: 'inline-flex', width: 56, height: 56, borderRadius: '50%', background: 'var(--bg-surface)', color: 'var(--accent)', alignItems: 'center', justifyContent: 'center', marginBottom: 12 }}><Ic2.Check size={28} /></span>
-              <div style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: 20, color: 'var(--text-strong)' }}>Message sent — efharisto!</div>
-              <p style={{ margin: '6px 0 0', color: 'var(--text-muted)' }}>We'll get back to you soon.</p>
-            </div>
-          </section>
+            <a href={`mailto:${SITE.email}`}>
+              {SITE.email}
+              <small>Email us anytime</small>
+            </a>
+            <a href={directionsUrl()} target="_blank" rel="noopener noreferrer">
+              {SITE.addressShort} ↗<small>Find GOYA House</small>
+            </a>
+          </div>
+        </div>
+        {s.state === "sent" ? (
+          <Success title="Message received.">
+            Thanks for getting in touch. A GOYA volunteer will reply as soon as
+            they can.
+          </Success>
         ) : (
-          <form onSubmit={onSubmit} style={{ padding: '20px 22px 36px', display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <input type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" className="visually-hidden" aria-hidden="true" />
-            <In label="Your name" name="name" placeholder="Name" required autoComplete="name" />
-            <In label="Email" name="email" type="email" placeholder="you@email.com" required autoComplete="email" />
-            <TA label="Message" name="message" rows={4} placeholder="What's on your mind?" required />
-            {err && <p role="alert" style={{ color: 'var(--danger, #b42318)', margin: 0, fontSize: 14 }}>{err}</p>}
-            <Btn type="submit" variant="primary" size="lg" full disabled={busy}>{busy ? 'Sending…' : 'Send message'}</Btn>
+          <form
+            className="form-stack"
+            onSubmit={onSubmit}
+            aria-busy={s.state === "busy"}
+          >
+            <Honeypot />
+            <p className="form-note">Fields marked * are required.</p>
+            <Input label="Your name" name="name" required autoComplete="name" />
+            <Input
+              label="Email"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+            />
+            <Select
+              key={String(hire)}
+              label="What’s it about?"
+              name="topic"
+              defaultValue={hire ? "GOYA House hire" : "General enquiry"}
+            >
+              <option>General enquiry</option>
+              <option>GOYA House hire</option>
+              <option>Events</option>
+              <option>Junior GOYA</option>
+              <option>Volunteering</option>
+            </Select>
+            <Textarea
+              label="Message"
+              name="message"
+              rows={6}
+              required
+              placeholder={
+                hire
+                  ? "Tell us your preferred date, occasion and approximate guest count."
+                  : "What’s on your mind?"
+              }
+              hint="For venue hire, include your preferred date and approximate guest count."
+            />
+            <p className="form-note">
+              Your details are sent to GOYA Brisbane to respond to this enquiry.
+            </p>
+            <SubmissionNotice submission={s} />
+            <button
+              className="button"
+              type="submit"
+              disabled={s.state === "busy"}
+            >
+              {s.state === "busy" ? "Sending…" : "Send message ↗"}
+            </button>
           </form>
         )}
-      </div>
-      <Ftr />
-    </div>
+      </section>
+      <Footer />
+    </>
   );
 }
