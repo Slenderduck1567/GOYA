@@ -12,6 +12,7 @@ import Gallery from './pages/Gallery.jsx';
 import Junior from './pages/Junior.jsx';
 import Netball from './pages/Netball.jsx';
 import Contact from './pages/Contact.jsx';
+import Thanks from './pages/Thanks.jsx';
 
 const keyForPath = (path) => {
   if (path.startsWith('/events/')) return 'event';
@@ -59,6 +60,7 @@ export default function App() {
             <Route path={ROUTES.junior} element={<Junior wide={wide} />} />
             <Route path={ROUTES.netball} element={<Netball wide={wide} />} />
             <Route path={ROUTES.contact} element={<Contact wide={wide} />} />
+            <Route path="/thanks" element={<Thanks />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>

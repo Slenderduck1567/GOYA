@@ -1,27 +1,29 @@
 import { SITE } from '../site.js';
 
-// Optional: a Web3Forms key (VITE_WEB3FORMS_KEY) takes priority if one is ever added.
-const KEY = import.meta.env.VITE_WEB3FORMS_KEY;
-
-// Sends a form to the GOYA inbox. Default: FormSubmit (free, no account — the inbox owner
-// clicks a one-time "Activate" link emailed after the very first submission).
-export async function submitForm(subject, fields) {
-  const url = KEY ? 'https://api.web3forms.com/submit' : `https://formsubmit.co/ajax/${SITE.email}`;
-  const payload = KEY
-    ? { access_key: KEY, subject, from_name: 'GOYA Brisbane website', ...fields }
-    : { _subject: subject, _template: 'table', _captcha: 'false', ...fields, ...(fields.Email ? { _replyto: fields.Email } : {}) };
-  let res, json = {};
-  try {
-    res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload),
-    });
-    json = await res.json().catch(() => ({}));
-  } catch {
-    throw new Error(`Couldn't send — check your connection, or email us at ${SITE.email}.`);
+// Sends a form to the GOYA inbox via FormSubmit (free, no account).
+// Uses a normal form POST (no CORS issues); FormSubmit then redirects back to /thanks.
+// The inbox owner clicks a one-time "Activate" link emailed after the very first submission.
+export function submitForm(subject, fields) {
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = `https://formsubmit.co/${SITE.email}`;
+  form.style.display = 'none';
+  const all = {
+    _subject: subject,
+    _template: 'table',
+    _captcha: 'false',
+    _next: `${window.location.origin}/thanks`,
+    ...(fields.Email ? { _replyto: fields.Email } : {}),
+    ...fields,
+  };
+  for (const [k, v] of Object.entries(all)) {
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = k;
+    input.value = v == null ? '' : String(v);
+    form.appendChild(input);
   }
-  const ok = res.ok && json.success !== false && json.success !== 'false';
-  if (!ok) throw new Error(json.message || `Something went wrong — please email us at ${SITE.email}.`);
-  return 'sent';
+  document.body.appendChild(form);
+  form.submit();
+  return new Promise(() => {}); // page navigates away
 }
