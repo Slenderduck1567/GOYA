@@ -25,6 +25,7 @@ export default function EventDetail() {
           src={e.photo}
           alt=""
           style={{ objectPosition: e.photoPos || "center" }}
+          fetchpriority="high"
         />
         <div className="hero-shade" />
         <div className="container hero-copy">
