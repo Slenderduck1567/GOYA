@@ -25,7 +25,7 @@ export default function Home() {
           <h1>
             Find your
             <br />
-            <span>parea.</span>
+            <span className="hero-parea">parea<span className="hero-period">.</span></span>
           </h1>
           <div className="hero-bottom">
             <p>
@@ -37,9 +37,14 @@ export default function Home() {
             </Link>
           </div>
         </div>
+        {upcoming[0] && <Link className="hero-next" to={`/events/${upcoming[0].id}`}><span className="hero-next-label">Next in the parea <span aria-hidden="true">↗</span></span><strong>{upcoming[0].title}</strong><span>{upcoming[0].dow} {upcoming[0].day} {upcoming[0].month} · {upcoming[0].time}</span></Link>}
         <span className="hero-caption">GOYA BRISBANE · EST. 1967</span>
       </section>
-      <section className="container section">
+      <div className="identity-strip container" aria-label="The GOYA community">
+        <span><small>01</small> Faith.</span><span><small>02</small> Culture.</span><span><small>03</small> Friendship.</span>
+        <Link to="/about">Greek roots.<br/>Brisbane home. <span aria-hidden="true">↗</span></Link>
+      </div>
+      <section className="container section home-events" id="whats-on">
         <div className="section-top">
           <div>
             <span className="eyebrow">On the calendar</span>
@@ -55,11 +60,7 @@ export default function Home() {
           ))}
         </div>
         {!upcoming.length && <p className="lead">Our next gatherings are on their way. Explore past events or follow our latest announcements.</p>}
-        {upcoming.some(e=>e.tags.includes("GOYA Weekend")) && <div className="weekend-note">
-          <span>01—03 OCTOBER 2026</span>
-          <p>{upcoming.filter(e=>e.tags.includes("GOYA Weekend")).map(e=>e.title).join(" · ")}</p>
-          <Link to="/events">Discover the GOYA Weekend →</Link>
-        </div>}
+
       </section>
       {featured.length > 0 && <section className="container weekend-lineup" aria-label="Friday and Saturday lineup">
         {featured.map((event, index) => (
@@ -72,8 +73,7 @@ export default function Home() {
           </Link>
         ))}
       </section>}
-      <FirstVisit />
-      <section className="sand-section">
+      <section className="sand-section community-feature">
         <div className="container section editorial-split">
           <div className="editorial-copy">
             <span className="eyebrow">This is GOYA</span>
@@ -162,6 +162,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <FirstVisit />
       <section className="container section closing">
         <span className="eyebrow">There’s a place for you</span>
         <h2>
