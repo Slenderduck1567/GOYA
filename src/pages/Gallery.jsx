@@ -71,7 +71,7 @@ export default function Gallery() {
             >
               Close ×
             </button>
-            <SmartImage key={photos[active].src} src={photos[active].src} alt={photos[active].alt} />
+            <SmartImage key={photos[active].src} src={photos[active].src} alt={photos[active].alt} sizes="100vw" />
             <div className="lightbox-bottom">
               <button
                 onClick={() =>

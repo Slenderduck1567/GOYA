@@ -4,14 +4,18 @@
     "small": "/assets/photos/goya-team-640.webp",
     "width": 1280,
     "height": 817,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/goya-team-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/aegean-cup.jpg": {
     "src": "/assets/photos/aegean-cup.webp",
     "small": "/assets/photos/aegean-cup-640.webp",
     "width": 1280,
     "height": 784,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/aegean-cup-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/committee-2026.jpg": {
     "src": "/assets/photos/committee-2026.webp",
@@ -25,14 +29,18 @@
     "small": "/assets/photos/goya-flag-640.webp",
     "width": 1280,
     "height": 719,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/goya-flag-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/hero.jpg": {
     "src": "/assets/photos/hero.webp",
     "small": "/assets/photos/hero-640.webp",
     "width": 1200,
     "height": 1500,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/hero-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/event-glendi.jpg": {
     "src": "/assets/photos/event-glendi.webp",
@@ -46,7 +54,9 @@
     "small": "/assets/photos/goya-singer-640.webp",
     "width": 1280,
     "height": 719,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/goya-singer-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/gallery-6.jpg": {
     "src": "/assets/photos/gallery-6.webp",
@@ -88,7 +98,9 @@
     "small": "/assets/photos/kefi-night-640.webp",
     "width": 1280,
     "height": 852,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/kefi-night-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/gallery-2.jpg": {
     "src": "/assets/photos/gallery-2.webp",
@@ -130,7 +142,9 @@
     "small": "/assets/photos/junior-goya-640.webp",
     "width": 1080,
     "height": 810,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/junior-goya-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/anastasia-tour.jpg": {
     "src": "/assets/photos/anastasia-tour.webp",
@@ -151,56 +165,72 @@
     "small": "/assets/photos/goya-banner-team-640.webp",
     "width": 1280,
     "height": 1707,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/goya-banner-team-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/goya-crowd.jpg": {
     "src": "/assets/photos/goya-crowd.webp",
     "small": "/assets/photos/goya-crowd-640.webp",
     "width": 1280,
     "height": 853,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/goya-crowd-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/about-collage.jpg": {
     "src": "/assets/photos/about-collage.webp",
     "small": "/assets/photos/about-collage-640.webp",
     "width": 1024,
     "height": 576,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/about-collage-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/about.jpg": {
     "src": "/assets/photos/about.webp",
     "small": "/assets/photos/about-640.webp",
     "width": 1000,
     "height": 800,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/about-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/gazi-night.jpg": {
     "src": "/assets/photos/gazi-night.webp",
     "small": "/assets/photos/gazi-night-640.webp",
     "width": 1280,
     "height": 853,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/gazi-night-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/netball.jpg": {
     "src": "/assets/photos/netball.webp",
     "small": "/assets/photos/netball-640.webp",
     "width": 1080,
     "height": 1350,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/netball-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/about-group.jpg": {
     "src": "/assets/photos/about-group.webp",
     "small": "/assets/photos/about-group-640.webp",
     "width": 1280,
     "height": 921,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/about-group-960.webp",
+    "mediumWidth": 960
   },
   "/assets/photos/about-youth.jpg": {
     "src": "/assets/photos/about-youth.webp",
     "small": "/assets/photos/about-youth-640.webp",
     "width": 1280,
     "height": 960,
-    "smallWidth": 640
+    "smallWidth": 640,
+    "medium": "/assets/photos/about-youth-960.webp",
+    "mediumWidth": 960
   },
   "/assets/logo-goya-ink.png": {
     "src": "/assets/logo-goya-ink.webp",
@@ -321,5 +351,15 @@
     "src": "/assets/meander.svg",
     "width": 30,
     "height": 30
+  },
+  "/assets/team/luke-karalis-crop.jpg": {
+    "src": "/assets/team/luke-karalis-crop.jpg",
+    "width": 240,
+    "height": 245
+  },
+  "/assets/team/sofia-papas-crop.jpg": {
+    "src": "/assets/team/sofia-papas-crop.jpg",
+    "width": 241,
+    "height": 246
   }
 }

@@ -3,8 +3,8 @@
     python3 scripts/optimize-images.py          # photos + logos + manifest
     python3 scripts/optimize-images.py logos    # logos + manifest only
 
-Needs Pillow (pip install Pillow). Photos in public/assets/photos/*.jpg get a 1280px
-and a 640px WebP. Logos get a small WebP sized for how big they appear on screen
+Needs Pillow (pip install Pillow). Photos in public/assets/photos/*.jpg get 1280px,
+960px and 640px WebP copies (full-width banners use all three; other photos use 1280/640). Logos get a small WebP sized for how big they appear on screen
 (about three times the displayed size, so they stay sharp on phones); the original PNGs
 stay for search engines and share previews. The manifest tells the site which file
 to load and how big it is, so pages don't jump while images arrive.
@@ -20,13 +20,16 @@ MANIFEST = Path('src/content/image-manifest.json')
 LOGOS = [('logo-goya-ink.png', 400), ('logo-goya-white.png', 400), ('seal-white.png', 160)]
 
 
-def photos():
+def photos(sizes=((1280, ''), (960, '-960'), (640, '-640'))):
     for source in PHOTOS.glob('*.jpg'):
         with Image.open(source) as original:
-            for width, suffix in [(1280, ''), (640, '-640')]:
+            for width, suffix in sizes:
+                # The in-between 960px copy only exists when the original is bigger than that.
+                if suffix == '-960' and original.size[0] <= 960:
+                    continue
                 im = original.convert('RGB'); im.thumbnail((width, width * 2))
                 im.save(PHOTOS / (source.stem + suffix + '.webp'), 'WEBP', quality=80, method=6)
-    print('Created full and mobile WebP photographs.')
+    print('Created full, medium and mobile WebP photographs.')
 
 
 def logos():
@@ -51,7 +54,11 @@ def manifest():
         if not (PUBLIC / full.lstrip('/')).exists():
             continue
         width, height = size(full)
-        entries[f'/assets/photos/{source.name}'] = {'src': full, 'small': small, 'width': width, 'height': height, 'smallWidth': size(small)[0]}
+        entry = {'src': full, 'small': small, 'width': width, 'height': height, 'smallWidth': size(small)[0]}
+        medium = f'/assets/photos/{source.stem}-960.webp'
+        if (PUBLIC / medium.lstrip('/')).exists():
+            entry.update(medium=medium, mediumWidth=size(medium)[0])
+        entries[f'/assets/photos/{source.name}'] = entry
     for name, _ in LOGOS:
         src = '/assets/' + name.replace('.png', '.webp')
         width, height = size(src)
