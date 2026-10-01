@@ -38,7 +38,7 @@ export default function Home() {
         {upcoming[0] && <Link className="hero-next" to={`/events/${upcoming[0].id}`}><span className="hero-next-label">Next in the parea <span aria-hidden="true">↗</span></span><strong>{upcoming[0].title}</strong><span>{upcoming[0].dow} {upcoming[0].day} {upcoming[0].month} · {upcoming[0].time}</span></Link>}
         <span className="hero-caption">GOYA BRISBANE · EST. 1967</span>
       </section>
-      <div className="identity-strip container" aria-label="The GOYA community">
+      <div className="identity-strip container" role="group" aria-label="The GOYA community">
         <span><small>01</small> Faith.</span><span><small>02</small> Culture.</span><span><small>03</small> Friendship.</span>
         <Link to="/about">Greek roots.<br/>Brisbane home. <span aria-hidden="true">↗</span></Link>
       </div>

@@ -38,7 +38,8 @@ export default function Events() {
           </p>
         </div>
         }
-        <div className="event-tabs" aria-label="Event period">
+        <h2 className="visually-hidden">{archive ? "Past events" : "Upcoming events"}</h2>
+        <div className="event-tabs" role="group" aria-label="Event period">
           <button aria-pressed={!archive} onClick={()=>setParams({})}>Coming up <span>{upcoming.length}</span></button>
           <button aria-pressed={archive} onClick={()=>setParams({view:"past"})}>Past events <span>{past.length}</span></button>
         </div>
