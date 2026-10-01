@@ -32,8 +32,10 @@ main {
 main:focus {
   outline: none;
 }
-.with-bottom-nav {
-  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+@media (max-width: 1179.98px) {
+  .with-bottom-nav {
+    padding-bottom: calc(64px + env(safe-area-inset-bottom));
+  }
 }
 .with-event-action {
   padding-bottom: calc(84px + env(safe-area-inset-bottom));
@@ -1589,3 +1591,8 @@ p { text-wrap:pretty; }
  .faq-list summary:hover::after { color:white;background:var(--accent); }
  .album-card:hover { background:#f1f6fc; }
 }
+
+/* Desktop links vs. mobile menu button and quick-links bar: both are in the page and the
+   breakpoint decides which shows, so the right navigation appears before scripts load. */
+@media (max-width: 1179.98px) { .site-header nav { display:none; } }
+@media (min-width: 1180px) { .menu-trigger, .bottom-nav { display:none; } }

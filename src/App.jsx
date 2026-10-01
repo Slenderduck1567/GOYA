@@ -4,6 +4,7 @@ import { Header, BottomNav, SideMenu } from "./Chrome.jsx";
 import { ROUTES } from "./site.js";
 import { useEditorialMotion } from "./hooks/useEditorialMotion.js";
 import { Metadata } from "./components/Metadata.jsx";
+import { normalizePath } from "./lib/seo.js";
 import Admin from "./pages/Admin.jsx";
 import Stories from "./pages/Stories.jsx";
 import Home from "./pages/Home.jsx";
@@ -25,11 +26,16 @@ const keyForPath = (path) => {
 };
 
 export default function App() {
-  const { pathname, search } = useLocation();
+  const location = useLocation();
+  const { search } = location;
+  // "/about/" is the same page as "/about".
+  const pathname = normalizePath(location.pathname);
   useEditorialMotion(pathname + search);
   const [menu, setMenu] = useState(false);
   const [atTop, setAtTop] = useState(true);
-  const [wide, setWide] = useState(() => typeof window !== "undefined" && window.innerWidth >= 1180);
+  // Starts false on every first render (like the prerendered HTML) and is corrected right
+  // after load. Only the slide-out menu depends on it; CSS handles the visible layout.
+  const [wide, setWide] = useState(false);
   const previousPath = useRef(pathname);
   const closeMenu = useCallback(() => setMenu(false), []);
 
@@ -47,6 +53,7 @@ export default function App() {
     const onScroll = () => setAtTop(window.scrollY < 60);
     const onResize = () => setWide(window.innerWidth >= 1180);
     onScroll();
+    onResize();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onResize);
     return () => {
@@ -59,7 +66,9 @@ export default function App() {
   const isEvent = key === "event";
   const transparentHeader =
     ["home", "event", "house", "about", "junior"].includes(key) && atTop;
-  const showBottomNav = !isEvent && !wide;
+  // Below 1180px the quick-links bar shows on every page except events (which have their
+  // own action bar); CSS hides it on wide screens.
+  const showBottomNav = !isEvent;
   const navCurrent = ["home", "events", "house", "join"].includes(key)
     ? key
     : null;
@@ -74,15 +83,12 @@ export default function App() {
         menuOpen={menu}
         onMenu={() => setMenu(true)}
         transparent={transparentHeader}
-        wide={wide}
         current={key}
       />
       <main
         id="main"
         tabIndex={-1}
-        className={
-          showBottomNav ? "with-bottom-nav" : isEvent ? "with-event-action" : ""
-        }
+        className={showBottomNav ? "with-bottom-nav" : "with-event-action"}
       >
         <div className={`page-root route-${key || pathname.slice(1)}`}>
           <Routes>

@@ -12,7 +12,9 @@ const LINKS = [
   ["stories", "Stories"],
   ["contact", "Contact"],
 ];
-export function Header({ onMenu, transparent, wide, current, menuOpen }) {
+// The desktop links and the mobile "Menu" button are both in the page; CSS shows one or
+// the other at the 1180px breakpoint, so the right one appears before any JavaScript runs.
+export function Header({ onMenu, transparent, current, menuOpen }) {
   return (
     <header className={`site-header ${transparent ? "is-transparent" : ""}`}>
       <Link to="/" aria-label="GOYA Brisbane — home" className="brand">
@@ -21,33 +23,30 @@ export function Header({ onMenu, transparent, wide, current, menuOpen }) {
           alt="GOYA"
         />
       </Link>
-      {wide ? (
-        <nav aria-label="Main">
-          {LINKS.map(([k, l]) => (
-            <Link
-              key={k}
-              to={pathFor(k)}
-              aria-current={current === k ? "page" : undefined}
-            >
-              {l}
-            </Link>
-          ))}
-          <Link className="header-join" to="/join">
-            Find your parea <Icons.ArrowRight size={16} />
+      <nav aria-label="Main">
+        {LINKS.map(([k, l]) => (
+          <Link
+            key={k}
+            to={pathFor(k)}
+            aria-current={current === k ? "page" : undefined}
+          >
+            {l}
           </Link>
-        </nav>
-      ) : (
-        <button
-          className="menu-trigger"
-          onClick={onMenu}
-          aria-label="Open menu"
-          aria-expanded={menuOpen}
-          aria-controls="site-menu"
-        >
-          <span>Menu</span>
-          <Icons.Menu size={22} />
-        </button>
-      )}
+        ))}
+        <Link className="header-join" to="/join">
+          Find your parea <Icons.ArrowRight size={16} />
+        </Link>
+      </nav>
+      <button
+        className="menu-trigger"
+        onClick={onMenu}
+        aria-label="Open menu"
+        aria-expanded={menuOpen}
+        aria-controls="site-menu"
+      >
+        <span>Menu</span>
+        <Icons.Menu size={22} />
+      </button>
     </header>
   );
 }
