@@ -201,5 +201,125 @@
     "width": 1280,
     "height": 960,
     "smallWidth": 640
+  },
+  "/assets/logo-goya-ink.png": {
+    "src": "/assets/logo-goya-ink.webp",
+    "width": 400,
+    "height": 210
+  },
+  "/assets/logo-goya-white.png": {
+    "src": "/assets/logo-goya-white.webp",
+    "width": 400,
+    "height": 210
+  },
+  "/assets/seal-white.png": {
+    "src": "/assets/seal-white.webp",
+    "width": 160,
+    "height": 160
+  },
+  "/assets/team/agapi-kalligeros.jpg": {
+    "src": "/assets/team/agapi-kalligeros.jpg",
+    "width": 306,
+    "height": 318
+  },
+  "/assets/team/alyssa-fotinis.jpg": {
+    "src": "/assets/team/alyssa-fotinis.jpg",
+    "width": 262,
+    "height": 250
+  },
+  "/assets/team/anna-ghorayeb.jpg": {
+    "src": "/assets/team/anna-ghorayeb.jpg",
+    "width": 262,
+    "height": 250
+  },
+  "/assets/team/committee-group.jpg": {
+    "src": "/assets/team/committee-group.jpg",
+    "width": 400,
+    "height": 279
+  },
+  "/assets/team/committee-source.jpg": {
+    "src": "/assets/team/committee-source.jpg",
+    "width": 1080,
+    "height": 1350
+  },
+  "/assets/team/dean-balev.jpg": {
+    "src": "/assets/team/dean-balev.jpg",
+    "width": 265,
+    "height": 250
+  },
+  "/assets/team/elena-sfouggaristos.jpg": {
+    "src": "/assets/team/elena-sfouggaristos.jpg",
+    "width": 262,
+    "height": 250
+  },
+  "/assets/team/james-kontoudios.jpg": {
+    "src": "/assets/team/james-kontoudios.jpg",
+    "width": 308,
+    "height": 318
+  },
+  "/assets/team/jen-sakley.jpg": {
+    "src": "/assets/team/jen-sakley.jpg",
+    "width": 262,
+    "height": 250
+  },
+  "/assets/team/luke-karalis.jpg": {
+    "src": "/assets/team/luke-karalis.jpg",
+    "width": 265,
+    "height": 250
+  },
+  "/assets/team/manning-mageros.jpg": {
+    "src": "/assets/team/manning-mageros.jpg",
+    "width": 262,
+    "height": 250
+  },
+  "/assets/team/micheal-penklis.jpg": {
+    "src": "/assets/team/micheal-penklis.jpg",
+    "width": 265,
+    "height": 250
+  },
+  "/assets/team/nick-penklis.jpg": {
+    "src": "/assets/team/nick-penklis.jpg",
+    "width": 262,
+    "height": 250
+  },
+  "/assets/team/peter-lahanas.jpg": {
+    "src": "/assets/team/peter-lahanas.jpg",
+    "width": 306,
+    "height": 318
+  },
+  "/assets/team/peter-samios.jpg": {
+    "src": "/assets/team/peter-samios.jpg",
+    "width": 262,
+    "height": 250
+  },
+  "/assets/team/sofia-papas.jpg": {
+    "src": "/assets/team/sofia-papas.jpg",
+    "width": 262,
+    "height": 250
+  },
+  "/assets/team/steph-sakley.jpg": {
+    "src": "/assets/team/steph-sakley.jpg",
+    "width": 265,
+    "height": 250
+  },
+  "/assets/team/thomas-paradissis.jpg": {
+    "src": "/assets/team/thomas-paradissis.jpg",
+    "width": 262,
+    "height": 250
+  },
+  "/assets/team/vas-karanicolas.jpg": {
+    "src": "/assets/team/vas-karanicolas.jpg",
+    "width": 308,
+    "height": 318
+  },
+  "/assets/team/zoe-fotinis.jpg": {
+    "src": "/assets/team/zoe-fotinis.jpg",
+    "width": 265,
+    "height": 250
+  },
+  "/assets/meander.svg": {
+    "src": "/assets/meander.svg",
+    "width": 30,
+    "height": 30
   }
 }
