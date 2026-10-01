@@ -52,19 +52,17 @@ const GOYA_COMMITTEE = [
 const portrait = (name) =>
   "/assets/team/" + name.toLowerCase().replaceAll(" ", "-") + ".jpg";
 function Portrait({ name }) {
+  // These two portraits are cut from the committee group photo. The crops are saved as
+  // small files so the page doesn't download the full 1080×1350 group photo for them.
   const crop =
     name === "Luke Karalis"
-      ? "247 851 240 245"
+      ? ["/assets/team/luke-karalis-crop.jpg", 240, 245]
       : name === "Sofia Papas"
-        ? "592 849 241 246"
+        ? ["/assets/team/sofia-papas-crop.jpg", 241, 246]
         : null;
   return crop ? (
-    <svg className="portrait" viewBox={crop} preserveAspectRatio="xMidYMid slice" role="img" aria-label={name}>
-      <image
-        href="/assets/team/committee-source.jpg"
-        width="1080"
-        height="1350"
-      />
+    <svg className="portrait" viewBox={`0 0 ${crop[1]} ${crop[2]}`} preserveAspectRatio="xMidYMid slice" role="img" aria-label={name}>
+      <image href={crop[0]} width={crop[1]} height={crop[2]} />
     </svg>
   ) : (
     <span className="portrait">
