@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SITE } from "../site.js";
 import { Footer } from "../Chrome.jsx";
-import { PageHero, MapEmbed, usePageTitle } from "../shared.jsx";
+import { PageHero, MapEmbed } from "../shared.jsx";
 export default function House() {
-  usePageTitle("GOYA House");
   return (
     <>
       <PageHero

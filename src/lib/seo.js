@@ -13,13 +13,16 @@ const pages={
  '/stories':['Stories from the parea · GOYA Brisbane','Read community stories and meet the people behind GOYA Brisbane.'],
  '/netball':['Netball archive · GOYA Brisbane','GOYA’s netball activity has finished. Explore the community’s next events.'],
  '/admin':['Committee editor · GOYA Brisbane','Prepare public website content updates for GOYA Brisbane.'],
+ '/thanks':['Thank you · GOYA Brisbane','Thanks for getting in touch with GOYA Brisbane.'],
 };
+// Pages that exist but should stay out of search results and the sitemap.
+export const privateRoutes=['/admin','/thanks'];
 export function metadata(path){
  const event=DATA.events.find(e=>path===`/events/${e.id}`);
  const [title,description]=event?[`${event.title} · GOYA Brisbane`,`${event.dow} ${event.day} ${event.month} ${event.year}. ${event.time}. ${event.venue}. ${event.age||''}`]:pages[path]||pages['/'];
  const photo=event?.photo||'/assets/og-image.jpg';
  const image=photo.startsWith('https://')?photo:ORIGIN+photo;
  const schema=event?{'@context':'https://schema.org','@type':'Event',name:event.title,description:event.blurb,startDate:event.startTime?`${event.date}T${event.startTime}:00+10:00`:event.date,...(event.endTime?{endDate:`${event.date}T${event.endTime}:00+10:00`}:{}),eventAttendanceMode:'https://schema.org/OfflineEventAttendanceMode',location:{'@type':'Place',name:event.venue,address:event.venue},image:[image],url:ORIGIN+path,organizer:{'@type':'Organization',name:'GOYA Brisbane',url:ORIGIN}}:{'@context':'https://schema.org','@type':'Organization',name:'GOYA Brisbane',url:ORIGIN,logo:ORIGIN+'/assets/logo-goya-ink.png',sameAs:['https://www.instagram.com/goya.brisbane/']};
- return {title,description,image,url:ORIGIN+path,schema,noindex:path==='/admin'||path==='/thanks'};
+ return {title,description,image,url:ORIGIN+path,schema,noindex:privateRoutes.includes(path)};
 }
-export const publicRoutes=Object.keys(pages).filter(p=>p!=='/admin').concat(DATA.events.map(e=>`/events/${e.id}`));
+export const publicRoutes=Object.keys(pages).filter(p=>!privateRoutes.includes(p)).concat(DATA.events.map(e=>`/events/${e.id}`));

@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../Chrome.jsx';
-import { PageIntro, usePageTitle } from '../shared.jsx';
+import { PageIntro } from '../shared.jsx';
 export default function Netball() {
-  usePageTitle('Netball — completed');
   return <>
     <PageIntro eyebrow="Past activities · GOYA Brisbane" title="Thanks for playing.">
       Our netball activity has finished. Expressions of interest are now closed.

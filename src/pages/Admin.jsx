@@ -3,10 +3,9 @@ import {DATA} from '../data.js';
 import {validateContent,normalizeEvent} from '../lib/content.js';
 import {EventCard} from '../components/display/EventCard.jsx';
 import {Input,Textarea,Select} from '../ds.js';
-import {PageIntro,usePageTitle} from '../shared.jsx';
+import {PageIntro} from '../shared.jsx';
 const DRAFT='goya-public-content-draft-v1';
 export default function Admin(){
- usePageTitle('Committee editor');
  const [draft,setDraft]=useState(()=>structuredClone(DATA)),[section,setSection]=useState('events'),[index,setIndex]=useState(0),[notice,setNotice]=useState(''),[errors,setErrors]=useState([]);
  useEffect(()=>{try{const saved=localStorage.getItem(DRAFT);if(saved){const parsed=JSON.parse(saved);if(!validateContent(parsed).length){setDraft(parsed);setNotice('Your local draft has been restored. It is not published.')}}}catch{setNotice('Local drafts are unavailable in this browser. Download your work before leaving.')}},[]);
  const update=(key,value)=>setDraft(d=>({...d,[section]:section==='media'?{...d.media,[key]:value}:d[section].map((item,i)=>i===index?{...item,[key]:value}:item)}));

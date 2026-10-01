@@ -1,17 +1,10 @@
 import { SmartImage } from "./components/SmartImage.jsx";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { pathFor, SITE } from "./site.js";
 export function useGo() {
   const navigate = useNavigate();
   return (key) => navigate(pathFor(key));
-}
-export function usePageTitle(title) {
-  useEffect(() => {
-    document.title = title
-      ? `${title} · GOYA Brisbane`
-      : "GOYA Brisbane — Find your parea";
-  }, [title]);
 }
 export function Meander() {
   return (

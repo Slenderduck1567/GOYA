@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { Input, Select, Textarea } from "../ds.js";
 import { Footer } from "../Chrome.jsx";
-import { usePageTitle } from "../shared.jsx";
 import {
   useSubmission,
   SubmissionNotice,
@@ -11,7 +10,6 @@ import {
   Honeypot,
 } from "../components/forms/Submission.jsx";
 export default function Join() {
-  usePageTitle("Join GOYA");
   const [params] = useSearchParams();
   const [group, setGroup] = useState(
     params.get("group") === "junior" ? "Junior GOYA (0–18)" : "GOYA (16–30)",

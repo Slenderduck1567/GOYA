@@ -5,9 +5,8 @@ import { useSearchParams } from "react-router-dom";
 import { EventCard } from "../ds.js";
 import { DATA } from "../data.js";
 import { Footer } from "../Chrome.jsx";
-import { PageIntro, usePageTitle } from "../shared.jsx";
+import { PageIntro } from "../shared.jsx";
 export default function Events() {
-  usePageTitle("Events");
   const [params, setParams] = useSearchParams();
   const requested = params.get("category");
   const filter = DATA.filters.includes(requested) ? requested : "All";

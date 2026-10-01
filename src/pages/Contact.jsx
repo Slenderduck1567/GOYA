@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Input, Select, Textarea } from "../ds.js";
 import { SITE } from "../site.js";
 import { Footer } from "../Chrome.jsx";
-import { directionsUrl, usePageTitle } from "../shared.jsx";
+import { directionsUrl } from "../shared.jsx";
 import {
   useSubmission,
   SubmissionNotice,
@@ -11,7 +11,6 @@ import {
   Honeypot,
 } from "../components/forms/Submission.jsx";
 export default function Contact() {
-  usePageTitle("Contact");
   const [params] = useSearchParams();
   const enquiry=params.get("enquiry");
   const initialTopic=enquiry==="hire"?"GOYA House hire":enquiry==="junior"?"Junior GOYA":"General enquiry";

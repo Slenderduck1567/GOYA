@@ -2,9 +2,8 @@ import { SmartImage } from "../components/SmartImage.jsx";
 import React, { useState, useRef, useEffect } from "react";
 import { DATA } from "../data.js";
 import { Footer } from "../Chrome.jsx";
-import { PageIntro, usePageTitle } from "../shared.jsx";
+import { PageIntro } from "../shared.jsx";
 export default function Gallery() {
-  usePageTitle("Gallery");
   const [active, setActive] = useState(null);
   const dialog = useRef(null);
   const opener = useRef(null);

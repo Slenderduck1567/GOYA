@@ -2,11 +2,10 @@ import React from "react";
 import { Button as Btn } from "../ds.js";
 import { Icons as Ic2 } from "../Icons.jsx";
 import { Footer as Ftr } from "../Chrome.jsx";
-import { useGo, usePageTitle } from "../shared.jsx";
+import { useGo } from "../shared.jsx";
 
 export default function ThanksScreen() {
   const go = useGo();
-  usePageTitle("Thank you");
   return (
     <div>
       <div

@@ -1,7 +1,7 @@
 import { SmartImage } from "../components/SmartImage.jsx";
 import React from "react";
 import { Footer } from "../Chrome.jsx";
-import { PageHero, usePageTitle } from "../shared.jsx";
+import { PageHero } from "../shared.jsx";
 const GOYA_TIMELINE = [
   [
     "1913",
@@ -73,7 +73,6 @@ function Portrait({ name }) {
   );
 }
 export default function About() {
-  usePageTitle("Our story");
   return (
     <>
       <PageHero

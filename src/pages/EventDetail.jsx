@@ -6,12 +6,11 @@ import { useEventClock } from "../hooks/useEventClock.js";
 import { DATA } from "../data.js";
 import { SITE } from "../site.js";
 import { Footer } from "../Chrome.jsx";
-import { MapEmbed, usePageTitle } from "../shared.jsx";
+import { MapEmbed } from "../shared.jsx";
 export default function EventDetail() {
   const { id } = useParams();
   const now = useEventClock();
   const e = DATA.events.find((x) => x.id === id);
-  usePageTitle(e?.title || "Events");
   if (!e) return <Navigate to="/events" replace />;
   const past = isPast(e,now);
   const url = (!past && e.ticketUrl) || e.updatesUrl || SITE.instagram;

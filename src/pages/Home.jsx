@@ -8,10 +8,8 @@ import { Link } from "react-router-dom";
 import { DATA } from "../data.js";
 import { SITE } from "../site.js";
 import { Footer } from "../Chrome.jsx";
-import { usePageTitle } from "../shared.jsx";
 import { EventCard } from "../ds.js";
 export default function Home() {
-  usePageTitle(null);
   const now = useEventClock();
   const { upcoming } = splitEvents(DATA.events,now);
   const featured=upcoming.filter(e=>e.featured);
