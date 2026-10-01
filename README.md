@@ -10,6 +10,7 @@ npm run dev
 
 ## Where to edit things
 - **Events** (add/change, set `ticketUrl` when tickets go live): `src/content/site-content.json`
+- **Website address** (for the custom domain): `url` in `src/site.js` — canonical links, sitemap, robots.txt, share previews and calendar files all follow it
 - **Links & contact details** (Instagram, Facebook, email, netball form): `src/site.js`
 - **Photos**: `public/assets/photos/`
 - **Pages**: `src/pages/`

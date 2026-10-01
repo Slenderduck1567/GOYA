@@ -1,5 +1,6 @@
 import {DATA} from '../data.js';
-export const ORIGIN='https://goya-nu.vercel.app';
+import {SITE} from '../site.js';
+export const ORIGIN=SITE.url.replace(/\/+$/,'');
 const pages={
  '/':['GOYA Brisbane — Find your parea','Events, faith, culture and friendship for young Greek Australians in Brisbane. Find your next gathering and meet the parea.'],
  '/events':['Events · GOYA Brisbane','Explore upcoming GOYA Brisbane events, confirmed venue details, calendar reminders and the community event archive.'],

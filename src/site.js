@@ -1,5 +1,9 @@
 // Site-wide settings — edit these to update links and contact details everywhere.
 export const SITE = {
+  // The public web address. Canonical links, the sitemap, robots.txt, social share
+  // previews and calendar files are all built from this one line. When the custom
+  // domain is live, change it here (no trailing slash) and redeploy.
+  url: 'https://goya-nu.vercel.app',
   instagram: 'https://instagram.com/goya.brisbane',
   instagramHandle: '@goya.brisbane',
   facebook: null, // e.g. 'https://facebook.com/goyabrisbane' — the icon only shows once this is set
